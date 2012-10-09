@@ -16,5 +16,7 @@ results
 node_modules
 npm-debug.log
 
+sublime
 1ch.sublime-project
 1ch.sublime-workspace
+1ch.sublime-build
