@@ -8,3 +8,4 @@ angular.module('1ch', []).
       when('/', {templateUrl: 'partials/main.html', controller: MainCtrl}).
       otherwise({redirectTo: '/'});
 }]);
+  
