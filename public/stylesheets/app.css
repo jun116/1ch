@@ -3,9 +3,9 @@
   padding: 16px;
   width: 100%;
   font: 30px bold;
-  color: #eee;
+  color: #E6E6DC;
   text-align: center;
-  background-color: #21475c;
+  background-color: #00628B;
 }
 
 .map{
@@ -44,14 +44,14 @@
 
 /* 吹き出し */
 .arrow_box {
-  color : #eee;
+  color : #E6E6DC;
   height: 70px;
   padding: 20px;
   margin:10px 0px 0px 110px;
   /*display: block;*/
   position: relative;
-  background: #3a718c;
-  border: 4px solid #21475c;
+  background: #00628B;
+  border: 4px solid #81A594;
   -webkit-border-radius: 11px;
   border-radius: 11px;
 }
@@ -67,14 +67,14 @@
 
 .arrow_box:after {
   border-color: rgba(136, 183, 213, 0);
-  border-right-color: #3a718c;
+  border-right-color: #00628B;
   border-width: 15px;
   top: 50%;
   margin-top: -15px;
 }
 .arrow_box:before {
   border-color: rgba(194, 225, 245, 0);
-  border-right-color: #21475c;
+  border-right-color: #81A594;
   border-width: 21px;
   top: 50%;
   margin-top: -21px;
