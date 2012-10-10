@@ -3,7 +3,7 @@ fs   = require 'fs'
 exec = require('child_process').exec
 
 COMMAND = 'coffee'
-OPTIONS = '-wcb'
+OPTIONS = '-cb'
 SRCDIR = './coffee'    # *.coffeeファイルがあるディレクトリへのパス
 OUTDIR = '.'            # *.jsファイルの保存先
 

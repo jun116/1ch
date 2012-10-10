@@ -8,7 +8,6 @@ angular.module("1ch", []).config ["$routeProvider", ($routeProvider) ->
   ).otherwise redirectTo: "/"
 ]
 
-
 class Maps
   constructor: (@canvas)->
     #super @canvas

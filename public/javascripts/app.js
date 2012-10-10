@@ -3,16 +3,12 @@
 
 var Maps, maps;
 
-angular.module("1ch", []).config([
-  "$routeProvider", function($routeProvider) {
-    return $routeProvider.when("/", {
-      templateUrl: "partials/main.html",
-      controller: MainCtrl
-    }).otherwise({
-      redirectTo: "/"
-    });
-  }
-]);
+angular.module('1ch', ['1chServices']).
+  config(['$routeProvider', function($routeProvider) {
+  $routeProvider.
+      when('/', {templateUrl: 'partials/main.html', controller: MainCtrl}).
+      otherwise({redirectTo: '/'});
+}]);
 
 Maps = (function() {
 
@@ -55,6 +51,3 @@ if (!navigator.geolocation) {
   return;
 }
 
-maps = new Maps($("#map_canvas")[0]);
-
-maps.geolocation();
