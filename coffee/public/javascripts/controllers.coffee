@@ -1,7 +1,7 @@
+"use strict"
 
 # Controllers 
 MainCtrl = ($scope, $routeParams) ->
-  
   #$scope.name = "ふが";
   $scope.tweets = [
     name: "fucker"
@@ -19,6 +19,5 @@ MainCtrl = ($scope, $routeParams) ->
     message: "れに、かなこぉー、しおり、あやか、ももか"
     time: "2012/09/10 09:12:12.000"
   ]
-"use strict"
 
 #PhoneListCtrl.$inject = ['$scope', '$routeParams'];
