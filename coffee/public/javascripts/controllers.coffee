@@ -1,8 +1,10 @@
 "use strict"
 
-# Controllers 
+###
+  Controllers
+###
+
 MainCtrl = ($scope, $routeParams) ->
-  #$scope.name = "ふが";
   $scope.tweets = [
     name: "fucker"
     icon: "https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg"
@@ -20,4 +22,4 @@ MainCtrl = ($scope, $routeParams) ->
     time: "2012/09/10 09:12:12.000"
   ]
 
-#PhoneListCtrl.$inject = ['$scope', '$routeParams'];
+MainCtrl.$inject = ['$scope', 'socket']
