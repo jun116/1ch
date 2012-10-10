@@ -4,4 +4,3 @@ module.exports = (socket) ->
   
   message.find {}, (err, messages) -> 
     socket.emit 'send:name', { tweets: messages }
-
