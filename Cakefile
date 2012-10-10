@@ -17,7 +17,7 @@ task 'all', 'compile target files', ->
       continue
     try
       js = fs.statSync (makePath [OUTDIR, target.path, target.file], ".js")
-      #continue if cs.mtime < js.mtime  # 更新されていなければ次のターゲットへ
+      continue if cs.mtime < js.mtime  # 更新されていなければ次のターゲットへ
     catch error
       null 
     try
@@ -27,6 +27,7 @@ task 'all', 'compile target files', ->
     command = "#{COMMAND} #{OPTIONS} -o #{OUTDIR}/#{target.path} #{coffee}" 
     sys.puts command
     exec command
+  sys.puts "No change." unless command
 
 task 'clean', 'delete target files', ->
   for target in targetList
@@ -45,11 +46,8 @@ makePath = (dirs, suffix)->
 
 targetList = []
 targetFiles = (path = "") ->
-  console.log "path", path
   for f in fs.readdirSync "#{SRCDIR}/#{path}"
-    console.log "a:" + path, f
     if f.match /^(\w+)\.coffee$/
-      console.log "b:" + path, RegExp.$1
       targetList.push 
         path : path
         file : RegExp.$1 
