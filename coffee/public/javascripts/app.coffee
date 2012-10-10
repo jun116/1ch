@@ -1,7 +1,7 @@
 "use strict"
 
 # App Module 
-angular.module("1ch", []).config ["$routeProvider", ($routeProvider) ->
+angular.module("1ch", ["1chServices"]).config ["$routeProvider", ($routeProvider) ->
   $routeProvider.when("/",
     templateUrl: "partials/main.html"
     controller: MainCtrl
@@ -37,5 +37,3 @@ class Maps
 unless navigator.geolocation
   alert "位置情報サービスが使えないZ〜"
   return
-maps = new Maps $("#map_canvas")[0]
-maps.geolocation()
