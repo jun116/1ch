@@ -29,6 +29,7 @@ class Maps
     options = 
       zoom: 18
       disableDefaultUI: true
+      scrollwheel: false
       center: latlang
       mapTypeId: google.maps.MapTypeId.ROADMAP
 
