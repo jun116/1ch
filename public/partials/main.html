@@ -10,7 +10,9 @@
   </div>
 </header>
 <section>
-  <div id="map_canvas" class="map"></div>
+  <div class="fixed">
+    <div id="map_canvas" class="map"></div>
+  </div>
   <ul class="tweets">
     <li ng-repeat='tweet in tweets'>
       <div class="cut"><img ng-src='{{tweet.icon}}' class='icon tweet'></div>
