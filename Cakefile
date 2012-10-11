@@ -4,7 +4,7 @@ exec = require('child_process').exec
 
 COMMAND = 'coffee'
 OPTIONS = '-cb'
-SRCDIR = './coffee'    # *.coffeeファイルがあるディレクトリへのパス
+SRCDIR = './assets/coffee'    # *.coffeeファイルがあるディレクトリへのパス
 OUTDIR = '.'            # *.jsファイルの保存先
 
 task 'all', 'compile target files', ->
