@@ -1,60 +1,68 @@
-/* app css stylesheet */
-.header{
+@charset "UTF-8";
+/* line 10, ../../assets/sass/app.scss */
+.header {
   padding: 16px;
   width: 100%;
   font: 30px bold;
-  color: #eee;
+  color: #f3efe0;
   text-align: center;
-  background-color: #21475c;
+  background-color: #217c7e;
 }
 
-.map{
+/* line 19, ../../assets/sass/app.scss */
+.map {
   position: absolute;
   width: 100%;
   height: 100%;
   opacity: 0.55;
 }
 
-.tweets{
+/* line 26, ../../assets/sass/app.scss */
+.tweets {
   margin: 0 auto;
   width: 80%;
-  list-style-type:none;
+  list-style-type: none;
   opacity: 0.9;
   padding-top: 10px;
 }
 
-.tweet{
+/* line 34, ../../assets/sass/app.scss */
+.tweet {
   margin-top: 5px;
   float: left;
   clear: both;
 }
 
-.icon{
-}
-
+/* line 43, ../../assets/sass/app.scss */
 .cut {
-  position:relative;
+  position: relative;
   float: left;
-  overflow: hidden; /*不要部分ｷﾘﾄﾘ*/
-  height: 80px; /*正方形にしたいサイズ*/
-  width: 80px; /*正方形にしたいサイズ*/
-  display: block; /*SPANなのでブロック要素に*/
+  overflow: hidden;
+  /*不要部分ｷﾘﾄﾘ*/
+  height: 80px;
+  /*正方形にしたいサイズ*/
+  width: 80px;
+  /*正方形にしたいサイズ*/
+  display: block;
+  /*SPANなのでブロック要素に*/
 }
-
 
 /* 吹き出し */
+/* line 54, ../../assets/sass/app.scss */
 .arrow_box {
-  color : #eee;
+  color: #f3efe0;
   height: 70px;
   padding: 20px;
-  margin:10px 0px 0px 110px;
+  margin: 10px 0px 0px 110px;
   /*display: block;*/
   position: relative;
-  background: #3a718c;
-  border: 4px solid #21475c;
+  background: #217c7e;
+  border: 4px solid #3399ff;
   -webkit-border-radius: 11px;
   border-radius: 11px;
 }
+
+/* line 66, ../../assets/sass/app.scss */
 .arrow_box:after, .arrow_box:before {
   right: 100%;
   border: solid transparent;
@@ -65,16 +73,19 @@
   pointer-events: none;
 }
 
+/* line 76, ../../assets/sass/app.scss */
 .arrow_box:after {
   border-color: rgba(136, 183, 213, 0);
-  border-right-color: #3a718c;
+  border-right-color: #217c7e;
   border-width: 15px;
   top: 50%;
   margin-top: -15px;
 }
+
+/* line 83, ../../assets/sass/app.scss */
 .arrow_box:before {
   border-color: rgba(194, 225, 245, 0);
-  border-right-color: #21475c;
+  border-right-color: #3399ff;
   border-width: 21px;
   top: 50%;
   margin-top: -21px;
