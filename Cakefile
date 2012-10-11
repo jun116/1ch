@@ -2,10 +2,16 @@ sys  = require 'sys'
 fs   = require 'fs'
 exec = require('child_process').exec
 
+# CoffeeScript
 COMMAND = 'coffee'
 OPTIONS = '-cb'
 SRCDIR = './assets/coffee'    # *.coffeeファイルがあるディレクトリへのパス
 OUTDIR = '.'            # *.jsファイルの保存先
+
+# Compass
+#COMPASS_DIR = "./assets"
+COMPASS_COMMAND = 'compass'
+COMPASS_OPTIONS = 'compile'
 
 task 'all', 'compile target files', ->
   for target in targetList
@@ -28,6 +34,8 @@ task 'all', 'compile target files', ->
     sys.puts command
     exec command
   sys.puts "No change." unless command
+  exec "growlnotify -t \"\" -m \"aa\""
+  compass()
 
 task 'clean', 'delete target files', ->
   for target in targetList
@@ -56,3 +64,9 @@ targetFiles = (path = "") ->
       f = path + "/" + f unless path == ""
       targetFiles f
 targetFiles()
+
+#---- compass ----
+compass = ->
+  command = "#{COMPASS_COMMAND} #{COMPASS_OPTIONS}"
+  sys.puts command
+  exec command
