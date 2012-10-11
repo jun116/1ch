@@ -1,20 +1,8 @@
 @charset "utf-8";
 
-$DARK_COLOR  : #217C7E;
-$WHITE_COLOR : #F3EFE0;
-$LIGHT_COLOR : #3399FF;
-$STRONG_COLOR: #9A3334;
-
-
-.header
-{
-  padding: 16px;
-  width: 100%;
-  font: 30px bold;
-  color: $WHITE_COLOR;
-  text-align: center;
-  background-color: $DARK_COLOR;
-}
+$DARK_COLOR  : #D5D5D5;
+$WHITE_COLOR : #333;
+$LIGHT_COLOR : #38B44A;
 
 .map{
   position: absolute;
