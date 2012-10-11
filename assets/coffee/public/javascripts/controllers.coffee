@@ -19,7 +19,13 @@ MainCtrl.$inject = ['$scope', 'socket']
 TweetCtrl = ($scope, socket) ->
 
   $scope.tweet = ->
-    navigator.geolocation.watchPosition (position)=>
+    navigator.geolocation.watchPosition @watchSuccess, @watchFail
+    return
+
+  socket.on 'tweet:end', (data) ->
+#    $location.path('/#');
+  
+  watchSuccess = (position)->
       latitude = position.coords.latitude
       longitude = position.coords.longitude
       message = 
@@ -33,6 +39,6 @@ TweetCtrl = ($scope, socket) ->
       console.log message
       if this.text
         this.text = ''
-    return
-  socket.on 'tweet:end', (data) ->
-#    $location.path('/#');
+
+  watchFail = (err) ->
+    console.log err
