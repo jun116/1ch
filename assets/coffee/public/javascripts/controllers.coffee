@@ -22,14 +22,17 @@ TweetCtrl = ($scope, socket) ->
     navigator.geolocation.watchPosition (position)=>
       latitude = position.coords.latitude
       longitude = position.coords.longitude
-      message = text: this.text
+      message = 
+                text: this.text
                 latitude: latitude 
                 longitude: longitude
                 name: 'warppy_'
 
       socket.emit 'tweet', message
+
+      console.log message
       if this.text
         this.text = ''
-
+    return
   socket.on 'tweet:end', (data) ->
 #    $location.path('/#');
