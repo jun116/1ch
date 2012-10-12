@@ -19,7 +19,7 @@ MainCtrl.$inject = ['$scope', 'socket']
 TweetCtrl = ($scope, socket) ->
 
   $scope.tweet = ->
-    navigator.geolocation.watchPosition (position)=>
+    navigator.geolocation.getCurrentPosition (position)=>
       latitude = position.coords.latitude
       longitude = position.coords.longitude
       message = 
@@ -35,6 +35,9 @@ TweetCtrl = ($scope, socket) ->
         @text = ''
     ,(err) ->
       console.log "err: " + err
+    , {
+      maximumAge: '0'
+    }
 
   socket.on 'tweet:end', (data) ->
 #    $location.path('/#');

@@ -18,7 +18,7 @@ class Maps
     #super @canvas
 
   geolocation: ->
-    navigator.geolocation.watchPosition (position)=>
+    @watchId = navigator.geolocation.watchPosition (position)=>
       @show position
       return
       
