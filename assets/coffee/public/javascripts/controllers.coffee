@@ -14,6 +14,9 @@ MainCtrl = ($scope, socket) ->
   socket.on 'send:name', (data) ->
     $scope.tweets = data.tweets
 
+  socket.on 'tweet:end', (data) ->
+    $scope.tweets = data.tweets
+
 MainCtrl.$inject = ['$scope', 'socket']
 
 TweetCtrl = ($scope, socket) ->
@@ -23,7 +26,7 @@ TweetCtrl = ($scope, socket) ->
       latitude = position.coords.latitude
       longitude = position.coords.longitude
       message = 
-                text: @text
+                text: $scope.text
                 latitude: latitude 
                 longitude: longitude
                 name: 'warppy_'
@@ -31,8 +34,8 @@ TweetCtrl = ($scope, socket) ->
       socket.emit 'tweet', message
 
       console.log message
-      if @text
-        @text = ''
+      if $scope.text
+        $scope.text = ""
     ,(err) ->
       console.log "err: " + err
     , {
