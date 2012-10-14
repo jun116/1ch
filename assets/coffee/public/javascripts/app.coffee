@@ -43,4 +43,4 @@ class Maps
 
 unless navigator.geolocation
   alert "位置情報サービスが使えないZ〜"
-  return
+  # return
