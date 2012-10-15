@@ -2,9 +2,13 @@
   <div class="navbar-inner">
     <div class="container">
       <ul class="nav">
-        <li><a href="#/tweet"><i class="icon-edit"></i></a></li>
+        <li>
+          <a href="#modal" role="button"  data-toggle="modal">
+            <i class="icon-edit"></i>
+          </a>
+        </li>
       </ul>
-      <h3 class="nav">秋葉原</h3>
+      <h3 class="nav">{{address}}</h3>
     </div>
   </div>
 </div>
@@ -19,5 +23,12 @@
         <div class="arrow_box">{{tweet.text}}</div>
       </li>
     </ul>
+  </div>
+ 
+  <div class="modal hide" id="modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-body input-append">
+      <input type="text" ng-model="text" placeholder="つぶやく" class="span5 input-xlarge" />
+      <a class="btn btn-success" ng-click="tweet()"><i class="icon-fire"></i> tweet</a>
+    </div>
   </div>
 </section>

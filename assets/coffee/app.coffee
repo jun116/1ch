@@ -5,7 +5,7 @@ Module dependencies.
 express = require("express")
 http = require("http")
 path = require("path")
-socket = require('./routes/socket.js')
+aa = require('./routes/socket.js')
 
 app = express()
 app.configure ->
@@ -29,4 +29,8 @@ server = http.createServer(app).listen app.get("port"), ->
 
 io = require('socket.io').listen server
 
-io.sockets.on 'connection', socket
+io.sockets.on 'connection', (socket)->
+  console.log "d"
+  aa(socket)
+  return
+  #console.log socket

@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* line 8, ../../assets/sass/app.scss */
+/* line 7, ../../assets/sass/app.scss */
 .fixed {
   bottom: 0;
   left: 0;
@@ -9,28 +9,28 @@
   height: 100%;
 }
 
-/* line 16, ../../assets/sass/app.scss */
+/* line 15, ../../assets/sass/app.scss */
 .map {
   opacity: 0.55;
 }
 
-/* line 20, ../../assets/sass/app.scss */
+/* line 19, ../../assets/sass/app.scss */
 .tweets {
   margin: 0 auto;
   width: 80%;
   list-style-type: none;
   opacity: 0.9;
-  padding-top: 10px;
+  padding-top: 40px;
 }
 
-/* line 28, ../../assets/sass/app.scss */
+/* line 27, ../../assets/sass/app.scss */
 .tweet {
   margin-top: 5px;
   float: left;
   clear: both;
 }
 
-/* line 37, ../../assets/sass/app.scss */
+/* line 36, ../../assets/sass/app.scss */
 .cut {
   position: relative;
   float: left;
@@ -45,7 +45,7 @@
 }
 
 /* 吹き出し */
-/* line 48, ../../assets/sass/app.scss */
+/* line 47, ../../assets/sass/app.scss */
 .arrow_box {
   color: #333333;
   height: 70px;
@@ -59,7 +59,7 @@
   border-radius: 11px;
 }
 
-/* line 60, ../../assets/sass/app.scss */
+/* line 59, ../../assets/sass/app.scss */
 .arrow_box:after, .arrow_box:before {
   right: 100%;
   border: solid transparent;
@@ -70,7 +70,7 @@
   pointer-events: none;
 }
 
-/* line 70, ../../assets/sass/app.scss */
+/* line 69, ../../assets/sass/app.scss */
 .arrow_box:after {
   border-color: rgba(136, 183, 213, 0);
   border-right-color: #d5d5d5;
@@ -79,7 +79,7 @@
   margin-top: -15px;
 }
 
-/* line 77, ../../assets/sass/app.scss */
+/* line 76, ../../assets/sass/app.scss */
 .arrow_box:before {
   border-color: rgba(194, 225, 245, 0);
   border-right-color: #38b44a;

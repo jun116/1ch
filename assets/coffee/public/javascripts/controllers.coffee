@@ -4,27 +4,29 @@
   Controllers
 ###
 
-MainCtrl = ($scope, socket) ->
+MainCtrl = ($scope, socket, $location) ->
 
-  maps = new Maps $("#map_canvas")[0]
-  maps.geolocation()
+  # maps
+  maps = new Maps 
+  maps.show $("#map_canvas")[0]
+  maps.address (address)->
+    $scope.$apply ->
+      $scope.address = address
 
+  # socketio
   socket.emit 'tweet:show', {}
-
   socket.on 'send:name', (data) ->
     $scope.tweets = data.tweets
 
   socket.on 'tweet:end', (data) ->
     $scope.tweets = data.tweets
 
+  socket.on 'tweet:why', (data) ->
+    console.log "tweet.end"
+    $location.path '/'
+
   # iScroll
   myScroll = new iScroll 'wrapper'
-
-  console.log "ctl"
-
-MainCtrl.$inject = ['$scope', 'socket']
-
-TweetCtrl = ($scope, socket, $location) ->
 
   $scope.tweet = ->
     navigator.geolocation.getCurrentPosition (position) =>
@@ -48,6 +50,6 @@ TweetCtrl = ($scope, socket, $location) ->
     ,(err) ->
       console.log "err: " + err
 
-  socket.on 'tweet:why', (data) ->
-    console.log "tweet.end"
-    $location.path '/'
+
+MainCtrl.$inject = ['$scope', 'socket']
+

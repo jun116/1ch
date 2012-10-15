@@ -1,30 +1,48 @@
 class Maps
-  constructor: (@canvas)->
+  constructor: ->
     #super @canvas
 
-  geolocation: ->
-    #@watchId = navigator.geolocation.watchPosition (position)=>
+  latlang: (callback)->
     navigator.geolocation.getCurrentPosition (position)=>
-      @show position
-      return
-      
-  show: (position) ->
-    latitude = position.coords.latitude
-    longitude = position.coords.longitude
-    latlang = new google.maps.LatLng latitude, longitude
-    options = 
-      zoom: 18
-      disableDefaultUI: true
-      scrollwheel: false
-      center: latlang
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      latitude = position.coords.latitude
+      longitude = position.coords.longitude
+      @latlang = new google.maps.LatLng latitude, longitude
 
-    map = new google.maps.Map @canvas, options
-    marker = new google.maps.Marker
-      position: latlang
-      icon:  'images/bluedot.png'
-      map: map
-    return
+      callback()
+      return
+
+  show:(@canvas) ->
+
+    @latlang =>
+      options = 
+        zoom: 18
+        disableDefaultUI: true
+        scrollwheel: false
+        center: @latlang
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      map = new google.maps.Map @canvas, options
+      marker = new google.maps.Marker
+        position: @latlang
+        icon:  'images/bluedot.png'
+        map: map
+
+  address: (@callback)->
+
+    @latlang =>
+      geocoder = new google.maps.Geocoder()
+      geocoder.geocode
+        latLng: @latlang
+      , (results, status)=>
+        if status  == google.maps.GeocoderStatus.OK
+          if results[0].geometry
+            address = @makeAddress results[0].address_components
+            console.log address
+            @callback address
+        else
+          console.log "住所取得できず"
+
+  makeAddress: (geocode)->
+    geocode[5].short_name + geocode[4].short_name + geocode[3].short_name
 
 unless navigator.geolocation
   alert "位置情報サービスが使えないZ〜"
