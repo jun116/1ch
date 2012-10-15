@@ -17,6 +17,11 @@ MainCtrl = ($scope, socket) ->
   socket.on 'tweet:end', (data) ->
     $scope.tweets = data.tweets
 
+  # iScroll
+  myScroll = new iScroll 'wrapper'
+
+  console.log "ctl"
+
 MainCtrl.$inject = ['$scope', 'socket']
 
 TweetCtrl = ($scope, socket, $location) ->
@@ -46,4 +51,3 @@ TweetCtrl = ($scope, socket, $location) ->
   socket.on 'tweet:why', (data) ->
     console.log "tweet.end"
     $location.path '/'
-  

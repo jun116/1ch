@@ -12,10 +12,12 @@
   <div class="fixed">
     <div id="map_canvas" class="map"></div>
   </div>
-  <ul class="tweets">
-    <li ng-repeat='tweet in tweets'>
-      <div class="cut"><img ng-src='{{tweet.icon}}' class='icon tweet'></div>
-      <div class="arrow_box">{{tweet.text}}</div>
-    </li>
-  </ul>
+  <div id="wrapper">
+    <ul class="tweets">
+      <li ng-repeat='tweet in tweets'>
+        <div class="cut"><img ng-src='{{tweet.icon}}' class='icon tweet'></div>
+        <div class="arrow_box">{{tweet.text}}</div>
+      </li>
+    </ul>
+  </div>
 </section>
