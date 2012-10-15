@@ -1,5 +1,11 @@
-<header class="navbar">
-    秋葉原
+<header class="navbar navbar-static-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <h3 class="nav">秋葉原</h3>
+    </div>
+  </div>
 </header>
-<input type="text" ng-model="text" />
-<button ng-click="tweet()">tweet</button>
+<div class="input-append">
+  <input type="text" ng-model="text" placeholder="つぶやく" class="span3 input-xlarge" />
+  <a class="btn btn-success" ng-click="tweet()"><i class="icon-fire"></i> tweet</a>
+</div>

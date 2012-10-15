@@ -15,7 +15,8 @@ module.exports = (socket) ->
     msg.location = [data.latitude, data.longitude]
 
     msg.save (err) ->
-#      console.log data + "msg = " + msg
       throw err if err
       message.find {}, (err, messages) ->
+        throw err if err
         socket.broadcast.emit 'tweet:end', { tweets: messages }
+        socket.emit 'tweet:why', { tweets: messages }
