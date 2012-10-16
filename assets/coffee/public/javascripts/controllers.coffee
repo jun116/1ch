@@ -21,9 +21,8 @@ MainCtrl = ($scope, socket, $location) ->
   socket.on 'tweet:end', (data) ->
     $scope.tweets = data.tweets
 
-  socket.on 'tweet:why', (data) ->
-    console.log "tweet.end"
-    $location.path '/'
+  socket.on 'tweet:me', (data) ->
+    $scope.tweets = data.tweets
 
   # iScroll
   myScroll = new iScroll 'wrapper'
@@ -45,7 +44,7 @@ MainCtrl = ($scope, socket, $location) ->
         if $scope.text
           $scope.text = ""
 
-        $location.path '/'
+
 
     ,(err) ->
       console.log "err: " + err

@@ -16,7 +16,7 @@ module.exports = (socket) ->
 
     msg.save (err) ->
       throw err if err
-      message.find {}, (err, messages) ->
+      message.find {}, {}, {sort: {'created': -1}}, (err, messages) ->
         throw err if err
         socket.broadcast.emit 'tweet:end', { tweets: messages }
-        socket.emit 'tweet:why', { tweets: messages }
+        socket.emit 'tweet:me', { tweets: messages }
