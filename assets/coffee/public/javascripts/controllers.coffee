@@ -49,6 +49,8 @@ MainCtrl = ($scope, socket, $location) ->
     ,(err) ->
       console.log "err: " + err
 
+  $scope.set = ->
+    # ローカルストレージに入れるZ〜
 
 MainCtrl.$inject = ['$scope', 'socket']
 
