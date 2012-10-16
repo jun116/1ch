@@ -3,7 +3,7 @@ module.exports = (socket) ->
   message = require '../models/message'
  
   socket.on 'tweet:show', (data) ->
-    message.find {}, (err, messages) ->
+    message.find {}, {}, {sort: {'created': -1}}, (err, messages) ->
       socket.emit 'send:name', { tweets: messages }
 
   socket.on 'tweet', (data) ->
