@@ -24,8 +24,14 @@
   <div id="wrapper">
     <ul class="tweets">
       <li ng-repeat='tweet in tweets'>
-        <div class="cut"><img ng-src='{{tweet.icon}}' class='icon tweet'></div>
-        <div class="arrow_box">{{tweet.text}}</div>
+        <div class="cut">
+          <img ng-src='{{tweet.icon}}' class='icon tweet img-rounded'>
+        </div>
+        <div class="arrow_box">
+          <p>{{tweet.name}}</p>
+          <p>{{tweet.text}}</p>
+          <p>{{tweet.created}}</p>
+        </div>
       </li>
     </ul>
   </div>
@@ -55,44 +61,12 @@
         <div class="control-group">
           <label>アイコン</label>
           <ul class="thumbnails">
-            <li class="span1">
+            <li class="span2" ng-repeat='thumbnail in thumbnails'>
               <div class="thumbnail">
-                <img src="https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg" alt="">
-              </div>
-            </li>
-            <li class="span1">
-              <div class="thumbnail">
-                <img src="https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg" alt="">
-              </div>
-            </li>
-            <li class="span1">
-              <div class="thumbnail">
-                <img src="https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg" alt="">
-              </div>
-            </li>
-            <li class="span1">
-              <div class="thumbnail">
-                <img src="https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg" alt="">
-              </div>
-            </li>
-            <li class="span1">
-              <div class="thumbnail">
-                <img src="https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg" alt="">
-              </div>
-            </li>
-            <li class="span1">
-              <div class="thumbnail">
-                <img src="https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg" alt="">
-              </div>
-            </li>
-            <li class="span1">
-              <div class="thumbnail">
-                <img src="https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg" alt="">
-              </div>
-            </li>
-            <li class="span1">
-              <div class="thumbnail">
-                <img src="https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg" alt="">
+                <label class="checkbox">
+                  <img class="img-rounded" ng-src="{{thumbnail.thumb}}" alt="">
+                  <input type="checkbox">{{thumbnail.description}}
+                </label>
               </div>
             </li>
           </ul>
@@ -101,6 +75,7 @@
           <a class="btn" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> キャンセル</a>
           <a class="btn btn-primary" data-dismiss="modal" ng-click="set()"><i class="icon-ok"></i> 設定</a>
         </div>
+        
       </form>
     </div>
   </div>

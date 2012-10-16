@@ -27,6 +27,31 @@ MainCtrl = ($scope, socket, $location) ->
   # iScroll
   myScroll = new iScroll 'wrapper'
 
+  # thumbnails
+  # 実際の画像はmongoに登録しておくかな
+  $scope.thumbnails = [
+    {
+      thumb: "https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg"
+      description: "warppy_"
+    }
+    {
+      thumb: "https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg"
+      description: "warppy_"
+    }
+    {
+      thumb: "https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg"
+      description: "warppy_"
+    }
+    {
+      thumb: "https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg"
+      description: "warppy_"
+    }
+    {
+      thumb: "https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg"
+      description: "warppy_"
+    }
+  ]
+
   $scope.tweet = ->
     navigator.geolocation.getCurrentPosition (position) =>
       $scope.$apply ->
@@ -43,8 +68,6 @@ MainCtrl = ($scope, socket, $location) ->
 
         if $scope.text
           $scope.text = ""
-
-
 
     ,(err) ->
       console.log "err: " + err
