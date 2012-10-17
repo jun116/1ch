@@ -50,6 +50,14 @@ MainCtrl = ($scope, socket, $location) ->
       thumb: "https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg"
       description: "warppy_"
     }
+    {
+      thumb: "https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg"
+      description: "warppy_"
+    }
+    {
+      thumb: "https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg"
+      description: "warppy_"
+    }
   ]
 
   $scope.tweet = ->
@@ -74,6 +82,7 @@ MainCtrl = ($scope, socket, $location) ->
 
   $scope.set = ->
     # ローカルストレージに入れるZ〜
+    console.log "setting end"
 
 MainCtrl.$inject = ['$scope', 'socket']
 

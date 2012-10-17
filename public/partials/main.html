@@ -61,12 +61,10 @@
         <div class="control-group">
           <label>アイコン</label>
           <ul class="thumbnails">
-            <li class="span2" ng-repeat='thumbnail in thumbnails'>
+            <li class="span1" ng-repeat='thumbnail in thumbnails'>
               <div class="thumbnail">
-                <label class="checkbox">
-                  <img class="img-rounded" ng-src="{{thumbnail.thumb}}" alt="">
-                  <input type="checkbox">{{thumbnail.description}}
-                </label>
+                <img class="img-rounded" ng-src="{{thumbnail.thumb}}" alt="{{thumbnail.description}}">
+                <p>{{thumbnail.description}}</p>
               </div>
             </li>
           </ul>
