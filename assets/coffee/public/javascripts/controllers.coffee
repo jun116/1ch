@@ -14,6 +14,7 @@ MainCtrl = ($scope, socket, $location) ->
       $scope.address = address
 
   # socketio
+  socket.emit 'session:start', {}
   socket.emit 'tweet:show', {}
   socket.on 'send:name', (data) ->
     $scope.tweets = data.tweets
@@ -86,6 +87,8 @@ MainCtrl = ($scope, socket, $location) ->
 
     ,(err) ->
       console.log "err: " + err
+
+  
 
   $scope.thumb_click = (thumb_no) ->
     $('.thumbnail').removeClass 'thumb_active'
