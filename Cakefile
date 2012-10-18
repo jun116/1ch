@@ -1,3 +1,4 @@
+util = require('util')
 sys  = require 'sys'
 fs   = require 'fs'
 exec = require('child_process').exec
@@ -32,7 +33,16 @@ task 'all', 'compile target files', ->
       fs.mkdirSync "#{OUTDIR}/#{target.path}", "755"
     command = "#{COMMAND} #{OPTIONS} -o #{OUTDIR}/#{target.path} #{coffee}" 
     sys.puts command
-    exec command
+    exec command , (error, stdout, stderr) -> 
+      util.log(error) if error
+      util.log(stdout) if stdout
+      util.log(stderr) if stderr
+
+      if error
+        util.log('失敗しました')
+      else
+        util.log('成功しました')
+
   sys.puts "No change." unless command
   exec "growlnotify -t \"\" -m \"aa\""
   compass()

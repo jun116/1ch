@@ -1,7 +1,16 @@
 module.exports = (socket) -> 
 
   message = require '../models/message'
- 
+  session = require '../models/session'
+  
+  socket.on 'session:start', (data) ->
+    sess = new session();
+    sess.socketid = socket.id
+    # sess.location = [data.latitude, data.longitude]
+    sess.save (err) ->
+      throw err if err
+      console.log '登録済み'
+
   socket.on 'tweet:show', (data) ->
     message.find {}, {}, {sort: {'created': -1}}, (err, messages) ->
       socket.emit 'send:name', { tweets: messages }
@@ -16,7 +25,16 @@ module.exports = (socket) ->
 
     msg.save (err) ->
       throw err if err
-      message.find {}, (err, messages) ->
+        
+      session.find {}, (err, sessions) ->
         throw err if err
-        socket.broadcast.emit 'tweet:end', { tweets: messages }
-        socket.emit 'tweet:why', { tweets: messages }
+        for sess in sessions
+          console.log '------ push socketid ------' + sess.socketid
+          socket.manager.sockets.socket(sess.socketid).emit 'tweet:end', { tweets: msg }
+
+  socket.on 'disconnect', (data) ->
+    socketid = socket.id
+    console.log 'discconect ' + socketid 
+    session.remove {socketid: socketid}, (err) ->
+      console.log 'discconected ' + socketid 
+

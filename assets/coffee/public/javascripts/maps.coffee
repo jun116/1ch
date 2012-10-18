@@ -35,14 +35,14 @@ class Maps
       , (results, status)=>
         if status  == google.maps.GeocoderStatus.OK
           if results[0].geometry
-            address = @makeAddress results[0].address_components
+            address = @makeAddress results[3].address_components
             console.log address
             @callback address
         else
           console.log "住所取得できず"
 
   makeAddress: (geocode)->
-    geocode[5].short_name + geocode[4].short_name + geocode[3].short_name
+    geocode[3].short_name + geocode[2].short_name + geocode[1].short_name
 
 unless navigator.geolocation
   alert "位置情報サービスが使えないZ〜"
