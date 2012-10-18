@@ -56,13 +56,13 @@
       <form>
         <div class="control-group">
           <label>名前</label>
-          <input type="text" placeholder="全国の名無しさん">
+          <input type="text" ng-model="setting_name" placeholder="全国の名無しさん">
         </div>
         <div class="control-group">
           <label>アイコン</label>
           <ul class="thumbnails">
             <li class="span1" ng-repeat='thumbnail in thumbnails'>
-              <div class="thumbnail">
+              <div class="thumbnail" id="thumbnail{{thumbnail.no}}" ng-click="thumb_click($index)">
                 <img class="img-rounded" ng-src="{{thumbnail.thumb}}" alt="{{thumbnail.description}}">
                 <p>{{thumbnail.description}}</p>
               </div>
