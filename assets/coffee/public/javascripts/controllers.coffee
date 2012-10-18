@@ -12,6 +12,11 @@ MainCtrl = ($scope, socket, $location) ->
   maps.address (address)->
     $scope.$apply ->
       $scope.address = address
+  # maps.position (position) ->
+  #   $scope.$apply ->
+  #     $scope.position = position
+
+#  console.log "latitude = " + $scope.position.latitude + ", longitude = " + $scope.position.longitude + ", accuracy = " + $scope.position.accuracy
 
   # socketio
   socket.emit 'tweet:show', {}

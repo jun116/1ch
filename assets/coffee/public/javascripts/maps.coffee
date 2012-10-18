@@ -44,5 +44,14 @@ class Maps
   makeAddress: (geocode)->
     geocode[3].short_name + geocode[2].short_name + geocode[1].short_name
 
+  position: (callback) ->
+    navigator.geolocation.getCurrentPosition (position) =>
+      pos = {}
+      pos.latitude = position.coords.latitude
+      pos.longitude = position.coords.longitude
+      pos.accuracy = position.coords.accuracy
+
+      callback pos
+
 unless navigator.geolocation
   alert "位置情報サービスが使えないZ〜"
