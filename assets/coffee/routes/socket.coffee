@@ -1,6 +1,7 @@
 module.exports = (socket) -> 
 
   message = require '../models/message'
+  session = require '../models/session'
  
   socket.on 'tweet:show', (data) ->
     message.find {}, {}, {sort: {'created': -1}}, (err, messages) ->
@@ -16,7 +17,16 @@ module.exports = (socket) ->
 
     msg.save (err) ->
       throw err if err
-      message.find {}, {}, {sort: {'created': -1}}, (err, messages) ->
+        
+      session.find {}, (err, sessions) ->
         throw err if err
-        socket.broadcast.emit 'tweet:end', { tweets: messages }
-        socket.emit 'tweet:me', { tweets: messages }
+        for sess in sessions
+          console.log '------ push socketid ------' + sess.socketid
+          socket.manager.sockets.socket(sess.socketid).emit 'tweet:end', { tweets: msg }
+
+  socket.on 'disconnect', (data) ->
+    socketid = socket.id
+    console.log 'discconect ' + socketid 
+    session.remove {socketid: socketid}, (err) ->
+      console.log 'discconected ' + socketid 
+

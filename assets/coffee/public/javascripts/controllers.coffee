@@ -19,7 +19,7 @@ MainCtrl = ($scope, socket, $location) ->
     $scope.tweets = data.tweets
 
   socket.on 'tweet:end', (data) ->
-    $scope.tweets = data.tweets
+    $scope.tweets.unshift data.tweets
 
   socket.on 'tweet:me', (data) ->
     $scope.tweets = data.tweets
