@@ -6,7 +6,7 @@ module.exports = (socket) ->
   socket.on 'session:start', (data) ->
     sess = new session();
     sess.socketid = socket.id
-    # sess.location = [data.latitude, data.longitude]
+    sess.location = [data.latitude, data.longitude]
     sess.save (err) ->
       throw err if err
       console.log '登録済み'

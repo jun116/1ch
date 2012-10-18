@@ -2,8 +2,8 @@ class Maps
   constructor: ->
     #super @canvas
 
-  latlang: (callback)->
-    navigator.geolocation.getCurrentPosition (position)=>
+  latlang: (callback) ->
+    navigator.geolocation.getCurrentPosition (position) =>
       latitude = position.coords.latitude
       longitude = position.coords.longitude
       @latlang = new google.maps.LatLng latitude, longitude
@@ -26,7 +26,7 @@ class Maps
         icon:  'images/bluedot.png'
         map: map
 
-  address: (@callback)->
+  address: (@callback) ->
 
     @latlang =>
       geocoder = new google.maps.Geocoder()
