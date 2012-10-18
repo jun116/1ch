@@ -2,7 +2,15 @@ module.exports = (socket) ->
 
   message = require '../models/message'
   session = require '../models/session'
- 
+  
+  socket.on 'session:start', (data) ->
+    sess = new session();
+    sess.socketid = socket.id
+    # sess.location = [data.latitude, data.longitude]
+    sess.save (err) ->
+      throw err if err
+      console.log '登録済み'
+
   socket.on 'tweet:show', (data) ->
     message.find {}, {}, {sort: {'created': -1}}, (err, messages) ->
       socket.emit 'send:name', { tweets: messages }

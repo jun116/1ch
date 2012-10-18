@@ -19,6 +19,7 @@ MainCtrl = ($scope, socket, $location) ->
 #  console.log "latitude = " + $scope.position.latitude + ", longitude = " + $scope.position.longitude + ", accuracy = " + $scope.position.accuracy
 
   # socketio
+  socket.emit 'session:start', {}
   socket.emit 'tweet:show', {}
   socket.on 'send:name', (data) ->
     $scope.tweets = data.tweets
@@ -91,6 +92,8 @@ MainCtrl = ($scope, socket, $location) ->
 
     ,(err) ->
       console.log "err: " + err
+
+  
 
   $scope.thumb_click = (thumb_no) ->
     $('.thumbnail').removeClass 'thumb_active'
