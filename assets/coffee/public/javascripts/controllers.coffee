@@ -6,6 +6,9 @@
 
 MainCtrl = ($scope, socket, $location) ->
 
+  # iScroll
+  myScroll = new iScroll 'wrapper'
+
   # maps
   @maps = new Maps 
   @maps.show $("#map_canvas")[0]
@@ -18,42 +21,24 @@ MainCtrl = ($scope, socket, $location) ->
 
       # socketio
       socket.emit 'session:start', position
+
       socket.emit 'tweet:show', {}
 
-      socket.on 'send:name', (data) ->
+      socket.on 'tweet:result', (data) ->
         $scope.tweets = data.tweets
 
       socket.on 'tweet:end', (data) ->
         $scope.tweets.unshift data.tweets
 
-      socket.on 'tweet:me', (data) ->
-        $scope.tweets = data.tweets
-
-  # iScroll
-  myScroll = new iScroll 'wrapper'
-
   # thumbnails
-  # 実際の画像はmongoに登録しておくかな
-  $scope.thumbnails = [
-    {
-      thumb: "https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg"
-    }
-    {
-      thumb: "https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg"
-    }
-    {
-      thumb: "https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg"
-    }
-    {
-      thumb: "https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg"
-    }
-    {
-      thumb: "https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg"
-    }
-    {
-      thumb: "https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg"
-    }
-  ]
+  $.getJSON '/api/thumblist', (data) ->
+    $scope.$apply ->
+      $scope.thumbnails = data
+      console.log "data = " + data
+  #console.log $resource
+  # $http.get('/api/thumblist').success (data) ->
+  #   $scope.$apply ->
+  #     $scope.thumbnails = data
 
   $scope.tweet = =>
     @maps.position (position) ->
@@ -67,7 +52,6 @@ MainCtrl = ($scope, socket, $location) ->
                   name: 'warppy_'
 
         socket.emit 'tweet', message
-        console.log message
 
         if $scope.text
           $scope.text = ""
