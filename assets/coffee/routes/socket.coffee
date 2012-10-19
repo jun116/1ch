@@ -11,7 +11,7 @@ module.exports = (socket) ->
     sess.location = [data.latitude, data.longitude]
     sess.save (err) ->
       throw err if err
-      console.log '登録済み'
+      console.log "登録済み : " + socket.id
 
   socket.on 'tweet:show', (data) ->
     message.find {}, {}, {sort: {'created': -1}}, (err, messages) ->

@@ -5,7 +5,7 @@
 ###
 
 angular.module('1chServices', []).
-  factory 'socket', ($rootScope) ->
+  factory 'socket', ($rootScope, $http) ->
     socket = io.connect()
 
     on: (eventName, callback) ->
@@ -20,3 +20,10 @@ angular.module('1chServices', []).
         $rootScope.$apply ->
           if callback
             callback.apply socket, args
+
+    thumb: (callback) ->
+      $http({method: 'GET', url: '/api/thumblist'})
+        .success (data) ->
+          callback data
+        .error (data) ->
+          throw data
