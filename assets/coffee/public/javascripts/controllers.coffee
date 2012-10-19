@@ -80,7 +80,5 @@ MainCtrl = ($scope, socket) ->
     icon = $('.thumb_active').find('img').attr('src')
     localStorage.setItem 'setting_icon', icon if icon
 
-    localStorage.clear()
-
 MainCtrl.$inject = ['$scope', 'socket']
 
