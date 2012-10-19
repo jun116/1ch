@@ -36,8 +36,10 @@ MainCtrl = ($scope, socket) ->
     localStorage.setItem 'thumbnails', data
 
   $scope.open = ->
+    if localStorage.getItem 'setting_name'
+      $scope.setting_name = localStorage.getItem 'setting_name'
+
     thumbnails = $('.thumbnail')
-    
     setting_icon = localStorage.getItem 'setting_icon'
     
     thumbnails.each (i, thumb) ->
@@ -77,6 +79,8 @@ MainCtrl = ($scope, socket) ->
     # アイコンを取得し保存
     icon = $('.thumb_active').find('img').attr('src')
     localStorage.setItem 'setting_icon', icon if icon
+
+    localStorage.clear()
 
 MainCtrl.$inject = ['$scope', 'socket']
 
