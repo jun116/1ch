@@ -4,10 +4,10 @@
   Controllers
 ###
 
-MainCtrl = ($scope, socket, $location) ->
+MainCtrl = ($scope, socket) ->
 
   # iScroll
-  myScroll = new iScroll 'wrapper'
+  # myScroll = new iScroll 'wrapper'
 
   # maps
   @maps = new Maps 
@@ -31,14 +31,21 @@ MainCtrl = ($scope, socket, $location) ->
         $scope.tweets.unshift data.tweets
 
   # thumbnails
-  $.getJSON '/api/thumblist', (data) ->
-    $scope.$apply ->
-      $scope.thumbnails = data
-      console.log "data = " + data
-  #console.log $resource
-  # $http.get('/api/thumblist').success (data) ->
-  #   $scope.$apply ->
-  #     $scope.thumbnails = data
+  socket.thumb (data) ->
+    $scope.thumbnails = data
+    localStorage.setItem 'thumbnails', data
+
+  $scope.open = ->
+    if localStorage.getItem 'setting_name'
+      $scope.setting_name = localStorage.getItem 'setting_name'
+
+    thumbnails = $('.thumbnail')
+    setting_icon = localStorage.getItem 'setting_icon'
+    
+    thumbnails.each (i, thumb) ->
+      thumb_url = $(thumb).find('img').attr('ng-src')
+      if setting_icon is thumb_url
+        $(thumb).addClass 'thumb_active'
 
   $scope.tweet = =>
     @maps.position (position) ->
@@ -65,6 +72,15 @@ MainCtrl = ($scope, socket, $location) ->
 
   $scope.set = ->
     # ローカルストレージに入れるZ〜
+    # 名前を取得し保存
+    name = $scope.setting_name
+    localStorage.setItem 'setting_name', name
+
+    # アイコンを取得し保存
+    icon = $('.thumb_active').find('img').attr('src')
+    localStorage.setItem 'setting_icon', icon if icon
+
+    localStorage.clear()
 
 MainCtrl.$inject = ['$scope', 'socket']
 
