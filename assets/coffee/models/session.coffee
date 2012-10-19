@@ -5,7 +5,7 @@ Schema = mongo.Schema
  
 Session = mongo.model 'sessions', new Schema
   socketid: String,
-  location: [latitude, longitude],
+  location: [Number, Number],
   created: {type: Date, default: Date.now},
   updated: {type: Date, default: Date.now}
 

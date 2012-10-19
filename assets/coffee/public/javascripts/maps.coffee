@@ -2,8 +2,8 @@ class Maps
   constructor: ->
     #super @canvas
 
-  latlang: (callback)->
-    navigator.geolocation.getCurrentPosition (position)=>
+  latlang: (callback) ->
+    navigator.geolocation.getCurrentPosition (position) =>
       latitude = position.coords.latitude
       longitude = position.coords.longitude
       @latlang = new google.maps.LatLng latitude, longitude
@@ -26,7 +26,7 @@ class Maps
         icon:  'images/bluedot.png'
         map: map
 
-  address: (@callback)->
+  address: (@callback) ->
 
     @latlang =>
       geocoder = new google.maps.Geocoder()
@@ -43,6 +43,15 @@ class Maps
 
   makeAddress: (geocode)->
     geocode[3].short_name + geocode[2].short_name + geocode[1].short_name
+
+  position: (callback) ->
+    navigator.geolocation.getCurrentPosition (position) =>
+      pos = {}
+      pos.latitude = position.coords.latitude
+      pos.longitude = position.coords.longitude
+      pos.accuracy = position.coords.accuracy
+
+      callback pos
 
 unless navigator.geolocation
   alert "位置情報サービスが使えないZ〜"
