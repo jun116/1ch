@@ -10,8 +10,14 @@ class Maps
 
       callback()
       return
+    , (err) ->
+      console.log err
+      alert "位置情報サービスが使えないZ〜"
+    , ->
+      maximumAge: Infinity,
+      $timeout: 5000
 
-  show:(@canvas) ->
+  show: (@canvas) ->
 
     @latlang =>
       options = 
