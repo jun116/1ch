@@ -63,7 +63,11 @@ MainCtrl = ($scope, socket) ->
   # 設定ボタンクリック時 - 設定
   $scope.set = ->
     # 名前を取得し保存
-    name = $scope.setting_name if $scope.setting_name
+    if $scope.setting_name
+      name = $scope.setting_name
+    else
+      name = ""
+
     localStorage.setItem 'setting_name', name
 
     # アイコンを取得し保存
