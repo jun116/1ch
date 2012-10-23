@@ -5190,9 +5190,9 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 /* line 4568, ../../assets/sass/bootstrap.scss */
 .modal {
   position: fixed;
-  top: 20%;
-  left: 5%;
-  right: 5%;
+  top: 8%;
+  left: 3%;
+  right: 3%;
   z-index: 1050;
   overflow: auto;
   width: auto;
