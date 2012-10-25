@@ -22,7 +22,7 @@ MainCtrl = ($scope, socket) ->
       # socketio
       socket.emit 'session:start', position
 
-      socket.emit 'tweet:show', {}
+      socket.emit 'tweet:show', position
 
       socket.on 'tweet:result', (data) ->
         $scope.tweets = data.tweets

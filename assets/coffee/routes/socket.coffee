@@ -14,7 +14,7 @@ module.exports = (socket) ->
       console.log "登録済み : " + socket.id
 
   socket.on 'tweet:show', (data) ->
-    message.find {}, {}, {sort: {'created': -1}}, (err, messages) ->
+    message.find { location : { $within : { $centerSphere : [[data.longitude, data.latitude], 0.0001] } } }, {}, {sort: {'created': -1}}, (err, messages) ->
       socket.emit 'tweet:result', { tweets: messages }
 
   socket.on 'tweet', (data) ->
