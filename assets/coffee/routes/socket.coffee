@@ -8,7 +8,7 @@ module.exports = (socket) ->
   socket.on 'session:start', (data) ->
     sess = new session();
     sess.socketid = socket.id
-    sess.location = [data.latitude, data.longitude]
+    sess.location = [data.longitude, data.latitude]
     sess.save (err) ->
       throw err if err
       console.log "登録済み : " + socket.id
@@ -22,12 +22,13 @@ module.exports = (socket) ->
     msg.icon = "https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg"
     msg.name = data.name
     msg.text = data.text
-    msg.location = [data.latitude, data.longitude]
+    msg.location = [data.longitude, data.latitude]
 
     msg.save (err) ->
       throw err if err
-        
-      session.find {}, (err, sessions) ->
+      
+      # 取得範囲は半径1km(0.0001ラジアン)とする。※1ラジアンは6371km
+      session.find { location : { $within : { $centerSphere : [[data.longitude, data.latitude], 0.0001] } } }, (err, sessions) ->
         throw err if err
         for sess in sessions
           console.log '------ push socketid ------' + sess.socketid
