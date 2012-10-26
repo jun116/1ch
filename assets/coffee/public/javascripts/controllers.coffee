@@ -25,6 +25,8 @@ MainCtrl = ($scope, socket) ->
       socket.emit 'tweet:show', position
 
       socket.on 'tweet:result', (data) ->
+        data.icon = if data.icon then data.icon else 'https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg'
+        data.name = if data.name then data.name else '全国の名無しZ'  
         $scope.tweets = data.tweets
 
       socket.on 'tweet:end', (data) ->
@@ -80,11 +82,15 @@ MainCtrl = ($scope, socket) ->
       $scope.$apply ->
         latitude = position.latitude
         longitude = position.longitude
+        name = localStorage.getItem 'setting_name'
+        icon = localStorage.getItem 'setting_icon'
+
         message = 
                   text: $scope.text
                   latitude: latitude 
                   longitude: longitude
-                  name: 'warppy_'
+                  name: name
+                  icon: icon
 
         socket.emit 'tweet', message
 

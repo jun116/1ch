@@ -19,8 +19,8 @@ module.exports = (socket) ->
 
   socket.on 'tweet', (data) ->
     msg = new message()
-    msg.icon = "https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg"
-    msg.name = data.name
+    msg.icon = if data.icon then data.icon else 'https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg'
+    msg.name = if data.name then data.name else '全国の名無しZ'  
     msg.text = data.text
     msg.location = [data.longitude, data.latitude]
 
