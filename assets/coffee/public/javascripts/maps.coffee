@@ -10,8 +10,14 @@ class Maps
 
       callback()
       return
+    , (err) ->
+      console.log err
+      alert "位置情報サービスが使えないZ〜"
+    , ->
+      maximumAge: Infinity,
+      $timeout: 5000
 
-  show:(@canvas) ->
+  show: (@canvas) ->
 
     @latlang =>
       options = 
@@ -23,7 +29,7 @@ class Maps
       map = new google.maps.Map @canvas, options
       marker = new google.maps.Marker
         position: @latlang
-        icon:  'images/bluedot.png'
+        icon: 'images/bluedot.png'
         map: map
 
   address: (@callback) ->

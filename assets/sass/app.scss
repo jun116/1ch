@@ -34,7 +34,7 @@ $LIGHT_COLOR : #38B44A;
 }
 
 .cut {
-  position:relative;
+  position: relative;
   float: left;
   overflow: hidden; /*不要部分ｷﾘﾄﾘ*/
   height: 80px; /*正方形にしたいサイズ*/
@@ -46,7 +46,7 @@ $LIGHT_COLOR : #38B44A;
 .arrow_box {
   color : $WHITE_COLOR;
   height: 70px;
-  padding: 20px;
+  padding: 5px;
   margin:10px 0px 0px 110px;
   /*display: block;*/
   position: relative;
@@ -83,5 +83,9 @@ $LIGHT_COLOR : #38B44A;
 }
 
 .thumb_active {
-  background-color: #38B44A
+  background-color: #38B44A;
+}
+
+p {
+  word-wrap: break-word;
 }

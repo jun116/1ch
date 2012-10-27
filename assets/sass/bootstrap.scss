@@ -4567,12 +4567,13 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 
 .modal {
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 8%;
+  left: 3%;
+  right: 3%;
   z-index: 1050;
   overflow: auto;
-  width: 560px;
-  margin: -250px 0 0 -280px;
+  width: auto;
+  margin: 0;
   background-color: #ffffff;
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, 0.3);
@@ -4612,8 +4613,10 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 
 .modal-body {
   overflow-y: auto;
-  max-height: 400px;
+  height: 60%;
+  max-height: 350px;
   padding: 15px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .modal-form {

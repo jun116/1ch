@@ -49,7 +49,7 @@
 .arrow_box {
   color: #333333;
   height: 70px;
-  padding: 20px;
+  padding: 5px;
   margin: 10px 0px 0px 110px;
   /*display: block;*/
   position: relative;
@@ -90,5 +90,10 @@
 
 /* line 85, ../../assets/sass/app.scss */
 .thumb_active {
-  background-color: #38b44a;
+  background-color: #38B44A;
+}
+
+/* line 89, ../../assets/sass/app.scss */
+p {
+  word-wrap: break-word;
 }
