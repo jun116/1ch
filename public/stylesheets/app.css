@@ -10,11 +10,17 @@
 }
 
 /* line 15, ../../assets/sass/app.scss */
+.logo {
+  font-family: 'Marcellus SC', serif;
+  font-size: 24px;
+}
+
+/* line 19, ../../assets/sass/app.scss */
 .map {
   opacity: 0.55;
 }
 
-/* line 19, ../../assets/sass/app.scss */
+/* line 23, ../../assets/sass/app.scss */
 .tweets {
   margin: 0 auto;
   width: 80%;
@@ -23,14 +29,14 @@
   padding-top: 40px;
 }
 
-/* line 27, ../../assets/sass/app.scss */
+/* line 31, ../../assets/sass/app.scss */
 .tweet {
   margin-top: 5px;
   float: left;
   clear: both;
 }
 
-/* line 36, ../../assets/sass/app.scss */
+/* line 40, ../../assets/sass/app.scss */
 .cut {
   position: relative;
   float: left;
@@ -45,7 +51,7 @@
 }
 
 /* 吹き出し */
-/* line 46, ../../assets/sass/app.scss */
+/* line 50, ../../assets/sass/app.scss */
 .arrow_box {
   color: #333333;
   height: 70px;
@@ -59,7 +65,7 @@
   border-radius: 11px;
 }
 
-/* line 59, ../../assets/sass/app.scss */
+/* line 63, ../../assets/sass/app.scss */
 .arrow_box:after, .arrow_box:before {
   right: 100%;
   border: solid transparent;
@@ -70,7 +76,7 @@
   pointer-events: none;
 }
 
-/* line 69, ../../assets/sass/app.scss */
+/* line 73, ../../assets/sass/app.scss */
 .arrow_box:after {
   border-color: rgba(136, 183, 213, 0);
   border-right-color: #d5d5d5;
@@ -79,7 +85,7 @@
   margin-top: -15px;
 }
 
-/* line 77, ../../assets/sass/app.scss */
+/* line 81, ../../assets/sass/app.scss */
 .arrow_box:before {
   border-color: rgba(194, 225, 245, 0);
   border-right-color: #38b44a;
@@ -88,12 +94,12 @@
   margin-top: -21px;
 }
 
-/* line 85, ../../assets/sass/app.scss */
+/* line 89, ../../assets/sass/app.scss */
 .thumb_active {
   background-color: #38B44A;
 }
 
-/* line 89, ../../assets/sass/app.scss */
+/* line 93, ../../assets/sass/app.scss */
 p {
   word-wrap: break-word;
 }
