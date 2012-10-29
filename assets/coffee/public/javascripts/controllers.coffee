@@ -34,11 +34,10 @@ MainCtrl = ($scope, socket) ->
 
   @maps.watchPosition (position) ->
     $scope.$apply ->
-      # $scope.position position
+      $scope.position = position
 
       console.log 'watchPosition!'
       socket.emit 'tweet:show', position
-
 
   # thumbnails
   socket.thumb (data) ->
@@ -86,27 +85,22 @@ MainCtrl = ($scope, socket) ->
 
   # tweetボタンクリック時 - つぶやき
   $scope.tweet = =>
-    @maps.position (position) ->
-      $scope.$apply ->
-        latitude = position.latitude
-        longitude = position.longitude
-        name = localStorage.getItem 'setting_name'
-        icon = localStorage.getItem 'setting_icon'
+    latitude = $scope.position.latitude
+    longitude = $scope.position.longitude
+    name = localStorage.getItem 'setting_name'
+    icon = localStorage.getItem 'setting_icon'
 
-        message = 
-                  text: $scope.text
-                  latitude: latitude 
-                  longitude: longitude
-                  name: name
-                  icon: icon
+    message = 
+              text: $scope.text
+              latitude: latitude 
+              longitude: longitude
+              name: name
+              icon: icon
 
-        socket.emit 'tweet', message
+    socket.emit 'tweet', message
 
-        if $scope.text
-          $scope.text = ""
-
-    ,(err) ->
-      console.log "err: " + err
+    if $scope.text
+      $scope.text = ""
 
 MainCtrl.$inject = ['$scope', 'socket']
 

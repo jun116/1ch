@@ -68,6 +68,7 @@ class Maps
       pos.latitude = position.coords.latitude
       pos.longitude = position.coords.longitude
       pos.accuracy = position.coords.accuracy
+      @latlang = new google.maps.LatLng position.coords.latitude, position.coords.longitude
 
       callback pos
     , (err) ->
