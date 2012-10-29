@@ -27,6 +27,8 @@ class Maps
         center: @latlang
         mapTypeId: google.maps.MapTypeId.ROADMAP
       map = new google.maps.Map @canvas, options
+      # 衛生写真の場合は以下のコメントアウトを解除  
+      # map.setMapTypeId google.maps.MapTypeId.SATELLITE
       marker = new google.maps.Marker
         position: @latlang
         icon: 'images/bluedot.png'
@@ -58,6 +60,20 @@ class Maps
       pos.accuracy = position.coords.accuracy
 
       callback pos
+
+  watchPosition: (callback) ->
+    options = {frequency : 3000};
+    navigator.geolocation.watchPosition (position) =>
+      pos = {}
+      pos.latitude = position.coords.latitude
+      pos.longitude = position.coords.longitude
+      pos.accuracy = position.coords.accuracy
+
+      callback pos
+    , (err) ->
+      console.log 'error'
+    , options
+
 
 unless navigator.geolocation
   alert "位置情報サービスが使えないZ〜"

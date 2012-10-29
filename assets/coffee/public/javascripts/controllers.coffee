@@ -32,6 +32,15 @@ MainCtrl = ($scope, socket) ->
       socket.on 'tweet:end', (data) ->
         $scope.tweets.unshift data.tweets
 
+  @maps.watchPosition (position) ->
+    $scope.$apply ->
+      $scope.position = position
+
+      alert 'watchPosition!'
+
+      socket.emit 'tweet:show', position
+
+
   # thumbnails
   socket.thumb (data) ->
     $scope.thumbnails = data
