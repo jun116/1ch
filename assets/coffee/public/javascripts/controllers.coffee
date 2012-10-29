@@ -34,10 +34,9 @@ MainCtrl = ($scope, socket) ->
 
   @maps.watchPosition (position) ->
     $scope.$apply ->
-      # $scope.position = position
+      # $scope.position position
 
       console.log 'watchPosition!'
-
       socket.emit 'tweet:show', position
 
 

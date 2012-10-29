@@ -55,6 +55,7 @@
 .arrow_box {
   color: #333333;
   height: 100%;
+  min-height: 80px;
   padding: 5px;
   margin: 10px 0px 0px 25%;
   /*display: block;*/
@@ -65,7 +66,7 @@
   border-radius: 11px;
 }
 
-/* line 63, ../../assets/sass/app.scss */
+/* line 64, ../../assets/sass/app.scss */
 .arrow_box:after, .arrow_box:before {
   right: 100%;
   border: solid transparent;
@@ -76,7 +77,7 @@
   pointer-events: none;
 }
 
-/* line 73, ../../assets/sass/app.scss */
+/* line 74, ../../assets/sass/app.scss */
 .arrow_box:after {
   border-color: rgba(136, 183, 213, 0);
   border-right-color: #d5d5d5;
@@ -85,7 +86,7 @@
   margin-top: -15px;
 }
 
-/* line 81, ../../assets/sass/app.scss */
+/* line 82, ../../assets/sass/app.scss */
 .arrow_box:before {
   border-color: rgba(194, 225, 245, 0);
   border-right-color: #38b44a;
@@ -94,12 +95,12 @@
   margin-top: -21px;
 }
 
-/* line 89, ../../assets/sass/app.scss */
+/* line 90, ../../assets/sass/app.scss */
 .thumb_active {
   background-color: #38B44A;
 }
 
-/* line 93, ../../assets/sass/app.scss */
+/* line 94, ../../assets/sass/app.scss */
 p {
   word-wrap: break-word;
 }

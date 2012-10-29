@@ -50,6 +50,7 @@ $LIGHT_COLOR : #38B44A;
 .arrow_box {
   color : $WHITE_COLOR;
   height: 100%;
+  min-height: 80px;
   padding: 5px;
   margin:10px 0px 0px 25%;
   /*display: block;*/
