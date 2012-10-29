@@ -31,9 +31,8 @@
           <img ng-src='{{tweet.icon}}' class='icon tweet img-rounded'>
         </div>
         <div class="arrow_box">
-          <p>{{tweet.name}}</p>
+          <p>{{tweet.name}} : {{tweet.created | date:'yyyy/MM/dd hh:mm:ss'}}</p>
           <p>{{tweet.text}}</p>
-          <p>{{tweet.created}}</p>
         </div>
       </li>
     </ul>

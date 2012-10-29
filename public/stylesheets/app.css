@@ -23,7 +23,7 @@
 /* line 23, ../../assets/sass/app.scss */
 .tweets {
   margin: 0 auto;
-  width: 80%;
+  width: 95%;
   list-style-type: none;
   opacity: 0.9;
   padding-top: 40px;
@@ -42,9 +42,9 @@
   float: left;
   overflow: hidden;
   /*不要部分ｷﾘﾄﾘ*/
-  height: 80px;
+  height: 15%;
   /*正方形にしたいサイズ*/
-  width: 80px;
+  width: 15%;
   /*正方形にしたいサイズ*/
   display: block;
   /*SPANなのでブロック要素に*/
@@ -54,9 +54,9 @@
 /* line 50, ../../assets/sass/app.scss */
 .arrow_box {
   color: #333333;
-  height: 70px;
+  height: 100%;
   padding: 5px;
-  margin: 10px 0px 0px 110px;
+  margin: 10px 0px 0px 25%;
   /*display: block;*/
   position: relative;
   background: #d5d5d5;
@@ -81,7 +81,7 @@
   border-color: rgba(136, 183, 213, 0);
   border-right-color: #d5d5d5;
   border-width: 15px;
-  top: 50%;
+  top: 30%;
   margin-top: -15px;
 }
 
@@ -90,7 +90,7 @@
   border-color: rgba(194, 225, 245, 0);
   border-right-color: #38b44a;
   border-width: 21px;
-  top: 50%;
+  top: 30%;
   margin-top: -21px;
 }
 
