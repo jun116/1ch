@@ -33,3 +33,4 @@ server = http.createServer(app).listen app.get("port"), ->
 
 io = require('socket.io').listen server
 io.sockets.on 'connection', socket
+
