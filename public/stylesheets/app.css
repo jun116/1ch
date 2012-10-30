@@ -46,18 +46,20 @@
   /*正方形にしたいサイズ*/
   width: 15%;
   /*正方形にしたいサイズ*/
+  max-width: 95px;
+  max-height: 100px;
   display: block;
   /*SPANなのでブロック要素に*/
 }
 
 /* 吹き出し */
-/* line 50, ../../assets/sass/app.scss */
+/* line 52, ../../assets/sass/app.scss */
 .arrow_box {
   color: #333333;
   height: 100%;
   min-height: 80px;
   padding: 5px;
-  margin: 10px 0px 0px 25%;
+  margin: 10px 0px 0px 120px;
   /*display: block;*/
   position: relative;
   background: #d5d5d5;
@@ -66,7 +68,7 @@
   border-radius: 11px;
 }
 
-/* line 64, ../../assets/sass/app.scss */
+/* line 66, ../../assets/sass/app.scss */
 .arrow_box:after, .arrow_box:before {
   right: 100%;
   border: solid transparent;
@@ -77,30 +79,30 @@
   pointer-events: none;
 }
 
-/* line 74, ../../assets/sass/app.scss */
+/* line 76, ../../assets/sass/app.scss */
 .arrow_box:after {
   border-color: rgba(136, 183, 213, 0);
   border-right-color: #d5d5d5;
   border-width: 15px;
-  top: 30%;
+  top: 30px;
   margin-top: -15px;
 }
 
-/* line 82, ../../assets/sass/app.scss */
+/* line 84, ../../assets/sass/app.scss */
 .arrow_box:before {
   border-color: rgba(194, 225, 245, 0);
   border-right-color: #38b44a;
   border-width: 21px;
-  top: 30%;
+  top: 30px;
   margin-top: -21px;
 }
 
-/* line 90, ../../assets/sass/app.scss */
+/* line 92, ../../assets/sass/app.scss */
 .thumb_active {
   background-color: #38B44A;
 }
 
-/* line 94, ../../assets/sass/app.scss */
+/* line 96, ../../assets/sass/app.scss */
 p {
   word-wrap: break-word;
 }
