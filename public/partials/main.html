@@ -3,6 +3,9 @@
     <div class="container">
       <ul class="nav">
         <li>
+          <div class="brand logo">1ch</div>
+        </li>
+        <li>
           <a href="#modal" role="button" data-toggle="modal">
             <i class="icon-edit"></i>
           </a>
@@ -28,9 +31,8 @@
           <img ng-src='{{tweet.icon}}' class='icon tweet img-rounded'>
         </div>
         <div class="arrow_box">
-          <p>{{tweet.name}}</p>
+          <p>{{tweet.name}} : {{tweet.created | date:'yyyy/MM/dd HH:mm:ss'}}</p>
           <p>{{tweet.text}}</p>
-          <p>{{tweet.created}}</p>
         </div>
       </li>
     </ul>
