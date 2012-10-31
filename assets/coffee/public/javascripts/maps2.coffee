@@ -2,46 +2,55 @@ class Maps2
 
   constructor: (@canvas) ->
 
-  currentPosition: (callback)->
+  init: ->
+    options =
+      zoom: 17
+      disableDefaultUI: true
+      scrollwheel: false
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+
+    @map = new google.maps.Map @canvas, options
+
+    @marker = new google.maps.Marker
+      icon: 'images/bluedot.png'
+      map: @map
+
+    @geocoder = new google.maps.Geocoder()
+
+  currentPosition: (callback) ->
     navigator.geolocation.getCurrentPosition (position) =>
       latitude = position.coords.latitude
       longitude = position.coords.longitude
       accuracy = position.coords.accuracy
+
       latlang = new google.maps.LatLng latitude, longitude
-      console.log latlang
+
+      @map.setCenter latlang
+      @markerPositionChange latlang
+
       callback(latlang)
+
     , (err) ->
       console.log err
       alert "位置情報サービスが使えないZ〜"
 
+    , ->
+      timeout: 3000
+      maximumAge: 0
+      enableHighAccuracy: true
 
-  show: ->
-    console.log "show"
-    @currentPosition (latlang) =>
-      console.log "callback"
-      options =
-        zoom: 18
-        disableDefaultUI: true
-        scrollwheel: false
-        center: latlang
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+  getAddress: (latlang, address) =>
+    @geocoder.geocode latLng: latlang
+    , (results, status) =>
+      if status == google.maps.GeocoderStatus.OK
+        # 住所がいっぱい返ってくるが、最適なものをチョイスしなくてはいけない感じ
+        address @createAddress results[3].address_components
+      else
+        console.log "住所取得できず"
 
-      @map = new google.maps.Map @canvas, options
-      console.log @map
-      marker = new google.maps.Marker
-        position: latlang
-        icon: 'images/bluedot.png'
-        map: @map
+  createAddress: (geocode) ->
+    geocode[3].short_name + geocode[2].short_name + geocode[1].short_name    
 
-      @out @aaa
+  markerPositionChange: (latlang) ->
+    @marker.setPosition latlang
 
-  aaa: (latlang) =>
-    @out @aaa
-    @map.setCenter new google.maps.LatLng 35.7971876, 139.77502800000002
-    marker = new google.maps.Marker
-        position: new google.maps.LatLng 35.7971876, 139.77502800000002
-        icon: 'images/bluedot.png'
-        map: @map
-
-  out: (callback)->
-    setTimeout @currentPosition , 5000, callback

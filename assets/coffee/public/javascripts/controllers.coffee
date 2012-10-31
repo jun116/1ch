@@ -11,7 +11,36 @@ MainCtrl = ($scope, socket) ->
 
   # maps
   @maps = new Maps2 $("#map_canvas")[0]
-  @maps.show() #$("#map_canvas")[0]
+  @maps.init()
+
+  positionLoop = =>
+    @maps.currentPosition (latlang) =>
+      position = 
+        latitude: latlang.Ya
+        longitude: latlang.Za
+
+      @maps.getAddress latlang, (address) ->
+        $scope.$apply ->
+          $scope.address = address
+          $scope.position = position
+
+      # socketio
+      socket.emit 'session:start', position
+      socket.emit 'tweet:show', position
+
+      setTimeout positionLoop, 10000
+
+  positionLoop()
+
+  # socketio
+  socket.on 'tweet:result', (data) ->
+    console.log data
+    data.icon = if data.icon then data.icon else 'https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg'
+    data.name = if data.name then data.name else '全国の名無しZ'  
+    $scope.tweets = data.tweets
+
+  socket.on 'tweet:end', (data) ->
+    $scope.tweets.unshift data.tweets
 
 
   # @maps = new Maps 
