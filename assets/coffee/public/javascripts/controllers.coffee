@@ -10,34 +10,38 @@ MainCtrl = ($scope, socket) ->
   # myScroll = new iScroll 'wrapper'
 
   # maps
-  @maps = new Maps 
-  @maps.show $("#map_canvas")[0]
-  @maps.address (address) ->
-    $scope.$apply ->
-      $scope.address = address
-  @maps.position (position) ->
-    $scope.$apply ->
-      $scope.position = position
+  @maps = new Maps2 $("#map_canvas")[0]
+  @maps.show() #$("#map_canvas")[0]
 
-      # socketio
-      socket.emit 'session:start', position
 
-      socket.emit 'tweet:show', position
+  # @maps = new Maps 
+  # @maps.show $("#map_canvas")[0]
+  # @maps.address (address) ->
+  #   $scope.$apply ->
+  #     $scope.address = address
+  # @maps.position (position) ->
+  #   $scope.$apply ->
+  #     $scope.position = position
 
-      socket.on 'tweet:result', (data) ->
-        data.icon = if data.icon then data.icon else 'https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg'
-        data.name = if data.name then data.name else '全国の名無しZ'  
-        $scope.tweets = data.tweets
+  #     # socketio
+  #     socket.emit 'session:start', position
 
-      socket.on 'tweet:end', (data) ->
-        $scope.tweets.unshift data.tweets
+  #     socket.emit 'tweet:show', position
 
-  @maps.watchPosition (position) ->
-    $scope.$apply ->
-      $scope.position = position
+  #     socket.on 'tweet:result', (data) ->
+  #       data.icon = if data.icon then data.icon else 'https://twimg0-a.akamaihd.net/profile_images/2588527924/lsbr4m4drnpsgp2rwgrb.jpeg'
+  #       data.name = if data.name then data.name else '全国の名無しZ'  
+  #       $scope.tweets = data.tweets
 
-      console.log 'watchPosition!'
-      socket.emit 'tweet:show', position
+  #     socket.on 'tweet:end', (data) ->
+  #       $scope.tweets.unshift data.tweets
+
+  # @maps.watchPosition (position) ->
+  #   $scope.$apply ->
+  #     $scope.position = position
+
+  #     console.log 'watchPosition!'
+  #     socket.emit 'tweet:show', position
 
   # thumbnails
   socket.thumb (data) ->
