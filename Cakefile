@@ -5,7 +5,7 @@ exec = require('child_process').exec
 
 # CoffeeScript
 COMMAND = 'coffee'
-OPTIONS = '-cb'
+OPTIONS = '-wcb'
 SRCDIR = './assets/coffee'    # *.coffeeファイルがあるディレクトリへのパス
 OUTDIR = '.'            # *.jsファイルの保存先
 
