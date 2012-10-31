@@ -49,7 +49,7 @@ class Maps2
         console.log "住所取得できず"
 
   createAddress: (geocode) ->
-    geocode[3].short_name + geocode[2].short_name + geocode[1].short_name    
+    geocode[2].short_name + geocode[1].short_name    
 
   markerPositionChange: (latlang) ->
     @marker.setPosition latlang
