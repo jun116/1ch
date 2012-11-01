@@ -21,7 +21,7 @@ class Maps
 
     @latlang =>
       options = 
-        zoom: 18
+        zoom: 9
         disableDefaultUI: true
         scrollwheel: false
         center: @latlang

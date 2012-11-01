@@ -9,7 +9,7 @@ class Maps2
       scrollwheel: false
       draggable: false
       disableDoubleClickZoom: true
-      mapTypeId: google.maps.MapTypeId.HYBRID
+      mapTypeId: google.maps.MapTypeId.SATELLITE　# SATELLITE #HYBRID #SATELLITE #TERRAIN #ROADMAP 
 
     @map = new google.maps.Map @canvas, options
 
@@ -46,6 +46,7 @@ class Maps2
     , (results, status) =>
       if status == google.maps.GeocoderStatus.OK
         # 住所がいっぱい返ってくるが、最適なものをチョイスしなくてはいけない感じ
+        console.dir results
         address @createAddress results[3].address_components
       else
         console.log "住所取得できず"
@@ -54,5 +55,5 @@ class Maps2
     geocode[2].short_name + geocode[1].short_name    
 
   markerPositionChange: (latlang) ->
-    @marker.setPosition latlang
+    # @marker.setPosition latlang
 
