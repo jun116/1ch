@@ -96,6 +96,11 @@ MainCtrl = ($scope, socket) ->
       if setting_icon is thumb_url
         $(thumb).addClass 'thumb_active'
 
+
+  $scope.logo_click = ->
+    h = $('html body')
+    h.scrollTop(0).scrollLeft(0)
+
   # サムネイルクリック時 - 設定
   $scope.thumb_click = (thumb_no) ->
     $('.thumbnail').removeClass 'thumb_active'
