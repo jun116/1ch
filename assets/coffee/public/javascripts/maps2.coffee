@@ -8,7 +8,7 @@ class Maps2
       disableDefaultUI: true
       scrollwheel: false
       draggable: false
-      disableDoubleClickZoom: false
+      disableDoubleClickZoom: true
       mapTypeId: google.maps.MapTypeId.HYBRID
 
     @map = new google.maps.Map @canvas, options
