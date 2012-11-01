@@ -10,7 +10,7 @@ MainCtrl = ($scope, socket) ->
   # myScroll = new iScroll 'wrapper'
 
   # maps
-  @maps = new Maps2 $("#map_canvas")[0]
+  @maps = new Maps $("#map_canvas")[0]
   @maps.init()
 
   positionLoop = =>
