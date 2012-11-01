@@ -6,12 +6,31 @@ module.exports = (socket) ->
   session = require '../models/session'
   
   socket.on 'session:start', (data) ->
-    sess = new session();
-    sess.socketid = socket.id
-    sess.location = [data.longitude, data.latitude]
-    sess.save (err) ->
+    conditions = 
+      socketid : socket.id
+    update = 
+      $set : {location : [data.longitude, data.latitude]}
+    options = 
+      upsert : true
+      multi : true 
+
+    session.update conditions, update, options, (err, numAffected) ->
       throw err if err
-      console.log "登録済み : " + socket.id
+      console.log "登録済み : " + numAffected
+    # Model.update(conditions, update, options, callback);
+
+
+    # update =　{ $set: {location : [ 149.7750317, 45.69715 ]} }
+      # options : 
+      #   upsert : true
+      #   multi : true
+
+    # sess = new session();
+    # sess.socketid = socket.id
+    # sess.location = [data.longitude, data.latitude]
+    # sess.update {socketid : socketid}, { $set: {location : [ ]} }, true, true, (err) ->
+    #   throw err if err
+    #   console.log "登録済み : " + sess._id
 
   socket.on 'tweet:show', (data) ->
     message.find { location : { $within : { $centerSphere : [[data.longitude, data.latitude], 0.0001] } } }, {}, {sort: {'created': -1}}, (err, messages) ->
