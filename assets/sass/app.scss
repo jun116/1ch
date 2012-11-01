@@ -7,14 +7,7 @@ $LIGHT_COLOR : #38B44A;
 h3.address{
   font-size :14px;
 }
-.fixed{
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  z-index: -1;
-  width:100%;
-  height:100%;
-}
+
 .logo {
   float: left;
   display: block;
@@ -25,11 +18,12 @@ h3.address{
   // font-family: 'Marcellus SC', serif;
   font-size: 24px;
 }
+
 .map{
   opacity: 1;
   width: 100%;
-  height: 250px;
-  margin-top: 40px;
+  height: 150px;
+  padding-top: 40px;
 }
 
 .tweets{

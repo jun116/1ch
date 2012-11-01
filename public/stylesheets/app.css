@@ -4,17 +4,7 @@ h3.address {
   font-size: 14px;
 }
 
-/* line 10, ../../assets/sass/app.scss */
-.fixed {
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-}
-
-/* line 18, ../../assets/sass/app.scss */
+/* line 11, ../../assets/sass/app.scss */
 .logo {
   float: left;
   display: block;
@@ -25,15 +15,15 @@ h3.address {
   font-size: 24px;
 }
 
-/* line 28, ../../assets/sass/app.scss */
+/* line 22, ../../assets/sass/app.scss */
 .map {
   opacity: 1;
   width: 100%;
-  height: 250px;
-  margin-top: 40px;
+  height: 150px;
+  padding-top: 40px;
 }
 
-/* line 35, ../../assets/sass/app.scss */
+/* line 29, ../../assets/sass/app.scss */
 .tweets {
   margin: 0 auto;
   width: 95%;
@@ -41,14 +31,14 @@ h3.address {
   opacity: 0.9;
 }
 
-/* line 42, ../../assets/sass/app.scss */
+/* line 36, ../../assets/sass/app.scss */
 .tweet {
   margin-top: 5px;
   float: left;
   clear: both;
 }
 
-/* line 51, ../../assets/sass/app.scss */
+/* line 45, ../../assets/sass/app.scss */
 .cut {
   position: relative;
   float: left;
@@ -65,7 +55,7 @@ h3.address {
 }
 
 /* 吹き出し */
-/* line 63, ../../assets/sass/app.scss */
+/* line 57, ../../assets/sass/app.scss */
 .arrow_box {
   font-size: 12px;
   color: #333333;
@@ -81,7 +71,7 @@ h3.address {
   border-radius: 8px;
 }
 
-/* line 78, ../../assets/sass/app.scss */
+/* line 72, ../../assets/sass/app.scss */
 .arrow_box:after, .arrow_box:before {
   right: 100%;
   border: solid transparent;
@@ -92,7 +82,7 @@ h3.address {
   pointer-events: none;
 }
 
-/* line 88, ../../assets/sass/app.scss */
+/* line 82, ../../assets/sass/app.scss */
 .arrow_box:after {
   border-color: rgba(136, 183, 213, 0);
   border-right-color: #d5d5d5;
@@ -101,7 +91,7 @@ h3.address {
   margin-top: -12px;
 }
 
-/* line 96, ../../assets/sass/app.scss */
+/* line 90, ../../assets/sass/app.scss */
 .arrow_box:before {
   border-color: rgba(194, 225, 245, 0);
   border-right-color: #38b44a;
@@ -110,12 +100,12 @@ h3.address {
   margin-top: -18px;
 }
 
-/* line 104, ../../assets/sass/app.scss */
+/* line 98, ../../assets/sass/app.scss */
 .thumb_active {
   background-color: #38B44A;
 }
 
-/* line 108, ../../assets/sass/app.scss */
+/* line 102, ../../assets/sass/app.scss */
 p {
   word-wrap: break-word;
 }

@@ -7,6 +7,7 @@ class Maps2
       zoom: 16
       disableDefaultUI: true
       scrollwheel: false
+      sensor: false
       mapTypeId: google.maps.MapTypeId.HYBRID
 
     @map = new google.maps.Map @canvas, options
