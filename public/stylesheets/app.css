@@ -24,6 +24,12 @@ h3.address {
 }
 
 /* line 29, ../../assets/sass/app.scss */
+.main {
+  padding-top: 10px;
+  background-color: #fefefe;
+}
+
+/* line 34, ../../assets/sass/app.scss */
 .tweets {
   margin: 0 auto;
   width: 95%;
@@ -31,14 +37,14 @@ h3.address {
   opacity: 0.9;
 }
 
-/* line 36, ../../assets/sass/app.scss */
+/* line 41, ../../assets/sass/app.scss */
 .tweet {
   margin-top: 5px;
   float: left;
   clear: both;
 }
 
-/* line 45, ../../assets/sass/app.scss */
+/* line 50, ../../assets/sass/app.scss */
 .cut {
   position: relative;
   float: left;
@@ -55,23 +61,23 @@ h3.address {
 }
 
 /* 吹き出し */
-/* line 57, ../../assets/sass/app.scss */
+/* line 62, ../../assets/sass/app.scss */
 .arrow_box {
   font-size: 12px;
   color: #333333;
   height: 100%;
   min-height: 50px;
   padding: 5px;
-  margin: 10px 0px 0px 80px;
+  margin: 0px 0px 10px 80px;
   /*display: block;*/
   position: relative;
-  background: #d5d5d5;
-  border: 4px solid #38b44a;
+  background: #f9f9f9;
+  border: 1px solid #cccccc;
   -webkit-border-radius: 8px;
   border-radius: 8px;
 }
 
-/* line 72, ../../assets/sass/app.scss */
+/* line 77, ../../assets/sass/app.scss */
 .arrow_box:after, .arrow_box:before {
   right: 100%;
   border: solid transparent;
@@ -82,30 +88,30 @@ h3.address {
   pointer-events: none;
 }
 
-/* line 82, ../../assets/sass/app.scss */
+/* line 87, ../../assets/sass/app.scss */
 .arrow_box:after {
   border-color: rgba(136, 183, 213, 0);
-  border-right-color: #d5d5d5;
+  border-right-color: #f9f9f9;
   border-width: 12px;
   top: 35px;
-  margin-top: -12px;
+  margin-top: -15px;
 }
 
-/* line 90, ../../assets/sass/app.scss */
+/* line 95, ../../assets/sass/app.scss */
 .arrow_box:before {
   border-color: rgba(194, 225, 245, 0);
-  border-right-color: #38b44a;
-  border-width: 18px;
-  top: 35px;
+  border-right-color: #cccccc;
+  border-width: 13px;
+  top: 37px;
   margin-top: -18px;
 }
 
-/* line 98, ../../assets/sass/app.scss */
+/* line 103, ../../assets/sass/app.scss */
 .thumb_active {
   background-color: #38B44A;
 }
 
-/* line 102, ../../assets/sass/app.scss */
+/* line 107, ../../assets/sass/app.scss */
 p {
   word-wrap: break-word;
 }
