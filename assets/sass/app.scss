@@ -52,7 +52,7 @@ h3.address{
   float: left;
   overflow: hidden; /*不要部分ｷﾘﾄﾘ*/
   width: 65px; /*正方形にしたいサイズ*/
-  height: 70px; /*正方形にしたいサイズ*/
+  height: 100%; /*正方形にしたいサイズ*/
   display: block; /*SPANなのでブロック要素に*/
 }
 
@@ -63,7 +63,7 @@ h3.address{
   height: 100%;
   min-height: 50px;
   padding: 5px;
-  margin:0px 0px 10px 80px;
+  margin:0px 0px 10px 85px;
   /*display: block;*/
   position: relative;
   background: $DARK_COLOR;
