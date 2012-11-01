@@ -4,10 +4,12 @@ class Maps2
 
   init: ->
     options =
-      zoom: 17
+      zoom: 16
       disableDefaultUI: true
       scrollwheel: false
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      draggable: false
+      disableDoubleClickZoom: true
+      mapTypeId: google.maps.MapTypeId.HYBRID
 
     @map = new google.maps.Map @canvas, options
 

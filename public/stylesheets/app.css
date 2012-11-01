@@ -4,17 +4,7 @@ h3.address {
   font-size: 14px;
 }
 
-/* line 10, ../../assets/sass/app.scss */
-.fixed {
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-}
-
-/* line 18, ../../assets/sass/app.scss */
+/* line 11, ../../assets/sass/app.scss */
 .logo {
   float: left;
   display: block;
@@ -25,61 +15,67 @@ h3.address {
   font-size: 24px;
 }
 
-/* line 28, ../../assets/sass/app.scss */
+/* line 22, ../../assets/sass/app.scss */
 .map {
-  opacity: 0.55;
+  opacity: 1;
+  width: 100%;
+  height: 150px;
+  padding-top: 40px;
 }
 
-/* line 32, ../../assets/sass/app.scss */
+/* line 29, ../../assets/sass/app.scss */
+.main {
+  padding-top: 10px;
+  background-color: #fefefe;
+}
+
+/* line 34, ../../assets/sass/app.scss */
 .tweets {
   margin: 0 auto;
   width: 95%;
   list-style-type: none;
   opacity: 0.9;
-  padding-top: 40px;
 }
 
-/* line 40, ../../assets/sass/app.scss */
+/* line 41, ../../assets/sass/app.scss */
 .tweet {
   margin-top: 5px;
   float: left;
   clear: both;
 }
 
-/* line 49, ../../assets/sass/app.scss */
+/* line 50, ../../assets/sass/app.scss */
 .cut {
   position: relative;
   float: left;
   overflow: hidden;
   /*不要部分ｷﾘﾄﾘ*/
-  height: 15%;
+  width: 65px;
   /*正方形にしたいサイズ*/
-  width: 15%;
+  height: 100%;
   /*正方形にしたいサイズ*/
-  max-width: 65px;
-  max-height: 70px;
   display: block;
   /*SPANなのでブロック要素に*/
 }
 
 /* 吹き出し */
-/* line 61, ../../assets/sass/app.scss */
+/* line 60, ../../assets/sass/app.scss */
 .arrow_box {
   font-size: 12px;
   color: #333333;
   height: 100%;
   min-height: 50px;
   padding: 5px;
-  margin: 10px 0px 0px 80px;
+  margin: 0px 0px 10px 85px;
   /*display: block;*/
   position: relative;
-  background: #d5d5d5;
-  border: 4px solid #38b44a;
+  background: #f9f9f9;
+  border: 1px solid #cccccc;
   -webkit-border-radius: 8px;
   border-radius: 8px;
 }
 
-/* line 76, ../../assets/sass/app.scss */
+/* line 75, ../../assets/sass/app.scss */
 .arrow_box:after, .arrow_box:before {
   right: 100%;
   border: solid transparent;
@@ -90,30 +86,30 @@ h3.address {
   pointer-events: none;
 }
 
-/* line 86, ../../assets/sass/app.scss */
+/* line 85, ../../assets/sass/app.scss */
 .arrow_box:after {
   border-color: rgba(136, 183, 213, 0);
-  border-right-color: #d5d5d5;
+  border-right-color: #f9f9f9;
   border-width: 12px;
   top: 35px;
-  margin-top: -12px;
+  margin-top: -15px;
 }
 
-/* line 94, ../../assets/sass/app.scss */
+/* line 93, ../../assets/sass/app.scss */
 .arrow_box:before {
   border-color: rgba(194, 225, 245, 0);
-  border-right-color: #38b44a;
-  border-width: 18px;
-  top: 35px;
+  border-right-color: #cccccc;
+  border-width: 13px;
+  top: 37px;
   margin-top: -18px;
 }
 
-/* line 102, ../../assets/sass/app.scss */
+/* line 101, ../../assets/sass/app.scss */
 .thumb_active {
   background-color: #38B44A;
 }
 
-/* line 106, ../../assets/sass/app.scss */
+/* line 105, ../../assets/sass/app.scss */
 p {
   word-wrap: break-word;
 }
