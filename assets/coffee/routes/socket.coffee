@@ -9,7 +9,8 @@ module.exports = (socket) ->
     conditions = 
       socketid : socket.id
     update = 
-      $set : {location : [data.longitude, data.latitude]}
+      $set : 
+        location : [data.longitude, data.latitude]
     options = 
       upsert : true
       multi : true 
