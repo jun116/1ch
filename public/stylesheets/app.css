@@ -31,8 +31,7 @@ h3.address {
 
 /* line 35, ../../assets/sass/app.scss */
 .map {
-  position: absolute;
-  top: 41px;
+  margin-top: 41px;
   left: 10px;
   width: 100%;
   height: 150px;
