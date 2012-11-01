@@ -55,4 +55,4 @@ class Maps
     geocode[2].short_name + geocode[1].short_name    
 
   markerPositionChange: (latlang) ->
-    # @marker.setPosition latlang
+    @marker.setPosition latlang
