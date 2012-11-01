@@ -1,13 +1,16 @@
 @charset "UTF-8";
 /* line 7, ../../assets/sass/app.scss */
-h3.address {
-  padding-left: 15px;
+.address {
+  text-align: right;
+  margin: 100px 20px 0 0;
+  height: 100%;
   font-size: 16px;
   color: #f9f9f9;
+  font-weight: bold;
   text-shadow: 1px 1px 2px #000;
 }
 
-/* line 14, ../../assets/sass/app.scss */
+/* line 17, ../../assets/sass/app.scss */
 .logo {
   float: left;
   display: block;
@@ -18,7 +21,7 @@ h3.address {
   font-size: 24px;
 }
 
-/* line 25, ../../assets/sass/app.scss */
+/* line 28, ../../assets/sass/app.scss */
 .map_gradient {
   position: absolute;
   top: 41px;
@@ -29,7 +32,7 @@ h3.address {
   background: -webkit-gradient(radial, center center, 100, center center, 270, from(rgba(0, 0, 0, 0)), to(black));
 }
 
-/* line 35, ../../assets/sass/app.scss */
+/* line 38, ../../assets/sass/app.scss */
 .map {
   margin-top: 41px;
   left: 0;
@@ -37,13 +40,13 @@ h3.address {
   height: 150px;
 }
 
-/* line 43, ../../assets/sass/app.scss */
+/* line 46, ../../assets/sass/app.scss */
 .main {
   padding-top: 10px;
   background-color: #fefefe;
 }
 
-/* line 48, ../../assets/sass/app.scss */
+/* line 51, ../../assets/sass/app.scss */
 .tweets {
   margin: 0 auto;
   width: 95%;
@@ -51,14 +54,14 @@ h3.address {
   opacity: 0.9;
 }
 
-/* line 55, ../../assets/sass/app.scss */
+/* line 58, ../../assets/sass/app.scss */
 .tweet {
   margin-top: 5px;
   float: left;
   clear: both;
 }
 
-/* line 64, ../../assets/sass/app.scss */
+/* line 67, ../../assets/sass/app.scss */
 .cut {
   position: relative;
   float: left;
@@ -73,7 +76,7 @@ h3.address {
 }
 
 /* 吹き出し */
-/* line 74, ../../assets/sass/app.scss */
+/* line 77, ../../assets/sass/app.scss */
 .arrow_box {
   font-size: 12px;
   color: #333333;
@@ -89,7 +92,7 @@ h3.address {
   border-radius: 8px;
 }
 
-/* line 89, ../../assets/sass/app.scss */
+/* line 92, ../../assets/sass/app.scss */
 .arrow_box:after, .arrow_box:before {
   right: 100%;
   border: solid transparent;
@@ -100,7 +103,7 @@ h3.address {
   pointer-events: none;
 }
 
-/* line 99, ../../assets/sass/app.scss */
+/* line 102, ../../assets/sass/app.scss */
 .arrow_box:after {
   border-color: rgba(136, 183, 213, 0);
   border-right-color: #f9f9f9;
@@ -109,7 +112,7 @@ h3.address {
   margin-top: -15px;
 }
 
-/* line 107, ../../assets/sass/app.scss */
+/* line 110, ../../assets/sass/app.scss */
 .arrow_box:before {
   border-color: rgba(194, 225, 245, 0);
   border-right-color: #cccccc;
@@ -118,12 +121,12 @@ h3.address {
   margin-top: -18px;
 }
 
-/* line 115, ../../assets/sass/app.scss */
+/* line 118, ../../assets/sass/app.scss */
 .thumb_active {
   background-color: #38B44A;
 }
 
-/* line 119, ../../assets/sass/app.scss */
+/* line 122, ../../assets/sass/app.scss */
 p {
   word-wrap: break-word;
 }
