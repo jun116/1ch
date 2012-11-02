@@ -17,6 +17,13 @@ class Maps
       icon: 'images/bluedot.png'
       map: @map
 
+    @circle = new google.maps.Circle
+      map: @map
+      radius: 200
+      fillColor: "#0055ff"
+      strokeColor: "#0055ff"
+      strokeWeight: 2
+
     @geocoder = new google.maps.Geocoder()
 
   currentPosition: (callback) ->
@@ -56,3 +63,4 @@ class Maps
 
   markerPositionChange: (latlang) ->
     @marker.setPosition latlang
+    # @circle.setCenter latlang
