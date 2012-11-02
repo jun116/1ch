@@ -13,6 +13,9 @@ MainCtrl = ($scope, socket) ->
   @maps = new Maps $("#map_canvas")[0]
   @maps.init()
 
+  google.maps.event.addDomListener window, 'load', ->
+    $(".address").parent().addClass "map_gradient"
+
   positionLoop = =>
     @maps.currentPosition (latlang) =>
       position = 
@@ -29,6 +32,10 @@ MainCtrl = ($scope, socket) ->
       socket.emit 'tweet:show', position
 
       setTimeout positionLoop, 10000
+
+      # alert('hoge');
+  # @maps.
+  # map_gradient
 
   positionLoop()
 
