@@ -12,31 +12,27 @@ MainCtrl = ($scope, socket) ->
   # maps
   @maps = new Maps $("#map_canvas")[0]
   @maps.init()
-  @maps.getMap()
 
   google.maps.event.addDomListener window, 'load', ->
     $(".address").show().wrap "<div class='map_gradient'></div>";
 
   positionLoop = =>
-    @maps.currentPosition (latlang) =>
+    @maps.currentPosition (location) =>
+      console.log location
       position = 
-        latitude: latlang.Ya
-        longitude: latlang.Za
+        latitude: location.latitude
+        longitude: location.longitude
 
-      @maps.getAddress latlang, (address) ->
-        $scope.$apply ->
-          $scope.address = address
-          $scope.position = position
+      # @maps.getAddress latlang, (address) ->
+        # $scope.$apply ->
+          # $scope.address = address
+          # $scope.position = position
 
       # socketio
       socket.emit 'session:start', position
       socket.emit 'tweet:show', position
 
       setTimeout positionLoop, 10000
-
-      # alert('hoge');
-  # @maps.
-  # map_gradient
 
   positionLoop()
 

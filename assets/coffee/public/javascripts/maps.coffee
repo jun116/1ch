@@ -2,7 +2,7 @@ class Maps
 
   constructor: (@canvas) ->
 
-  getMap: ->
+  init: ->
     options =
       credentials: "AqO6Yp2TKKTXRaVmveModdMqLPXMALcdYH_pYHhEomNkIlXgbrJJ2m2WqhDulqNt"
       mapTypeId: Microsoft.Maps.MapTypeId.birdseye
@@ -17,27 +17,7 @@ class Maps
       enableSearchLogo: false
       enableClickableLogo: false
 
-    @map2 = new Microsoft.Maps.Map $("#map_canvas2")[0], options
-    center = @map2.getCenter()
-    pin = new Microsoft.Maps.Pushpin center, text: 'あ'
-    @map2.entities.push pin
-
-  init: ->
-    options =
-      zoom: 16
-      disableDefaultUI: true
-      scrollwheel: false
-      draggable: false
-      disableDoubleClickZoom: true
-      mapTypeId: google.maps.MapTypeId.SATELLITE　# SATELLITE #HYBRID #SATELLITE #TERRAIN #ROADMAP 
-
-    @map = new google.maps.Map @canvas, options
-
-    @marker = new google.maps.Marker
-      icon: 'images/bluedot.png'
-      map: @map
-
-    @geocoder = new google.maps.Geocoder()
+    @map = new Microsoft.Maps.Map @canvas, options
 
   currentPosition: (callback) ->
     navigator.geolocation.getCurrentPosition (position) =>
@@ -45,14 +25,11 @@ class Maps
       longitude = position.coords.longitude
       accuracy = position.coords.accuracy
 
-      latlang = new google.maps.LatLng latitude, longitude
+      location = new Microsoft.Maps.Location latitude, longitude
 
-      @map.setCenter latlang
-      @markerPositionChange latlang
+      @map.setView center: location
 
-      @map2.setView center: new Microsoft.Maps.Location latitude, longitude
-
-      callback(latlang)
+      callback(location)
 
     , (err) ->
       console.log err
