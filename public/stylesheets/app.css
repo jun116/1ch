@@ -34,6 +34,7 @@
 
 /* line 38, ../../assets/sass/app.scss */
 .map {
+  position: relative;
   margin-top: 41px;
   left: 0;
   width: 100%;

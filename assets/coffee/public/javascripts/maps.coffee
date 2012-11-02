@@ -4,27 +4,20 @@ class Maps
 
   init: ->
     options =
-      zoom: 16
-      disableDefaultUI: true
-      scrollwheel: false
-      draggable: false
-      disableDoubleClickZoom: true
-      mapTypeId: google.maps.MapTypeId.SATELLITE　# SATELLITE #HYBRID #SATELLITE #TERRAIN #ROADMAP 
+      credentials: "AqO6Yp2TKKTXRaVmveModdMqLPXMALcdYH_pYHhEomNkIlXgbrJJ2m2WqhDulqNt"
+      mapTypeId: Microsoft.Maps.MapTypeId.birdseye
+      zoom: 18
+      animate: false
+      disableKeyboardInput: true
+      disableMouseInput: true
+      disableTouchInput: true
+      showDashboard: false
+      showScalebar: false
+      showCopyright: false
+      enableSearchLogo: false
+      enableClickableLogo: false
 
-    @map = new google.maps.Map @canvas, options
-
-    @marker = new google.maps.Marker
-      icon: 'images/bluedot.png'
-      map: @map
-
-    @circle = new google.maps.Circle
-      map: @map
-      radius: 200
-      fillColor: "#0055ff"
-      strokeColor: "#0055ff"
-      strokeWeight: 2
-
-    @geocoder = new google.maps.Geocoder()
+    @map = new Microsoft.Maps.Map @canvas, options
 
   currentPosition: (callback) ->
     navigator.geolocation.getCurrentPosition (position) =>
@@ -32,12 +25,11 @@ class Maps
       longitude = position.coords.longitude
       accuracy = position.coords.accuracy
 
-      latlang = new google.maps.LatLng latitude, longitude
+      location = new Microsoft.Maps.Location latitude, longitude
 
-      @map.setCenter latlang
-      @markerPositionChange latlang
+      @map.setView center: location
 
-      callback(latlang)
+      callback(location)
 
     , (err) ->
       console.log err
