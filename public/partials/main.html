@@ -16,7 +16,7 @@
   </div>
 </div>
 <section>
-  <p class="address" style="display: none">{{address}}</p>
+  <p class="address" style="display: no">{{address}}</p>
   <div class="map">
     <div id="map_canvas"></div>
   </div>
@@ -66,10 +66,10 @@
             </li>
           </ul>
         </div>
-        <div>
-          <a class="btn btn-large btn-block btn-success" data-dismiss="modal" ng-click="set()"><i class="icon-ok"></i> 設定</a>
+        <div class="control-group pull-right">
+          <a class="btn" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> キャンセル</a>
+          <a class="btn btn-primary " data-dismiss="modal" ng-click="set()"><i class="icon-ok"></i> 設定</a>
         </div>
-        
       </form>
     </div>
   </div>
