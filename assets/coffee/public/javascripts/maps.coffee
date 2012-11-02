@@ -19,9 +19,10 @@ class Maps
 
     @circle = new google.maps.Circle
       map: @map
-      radius: 130
+      radius: 200
       fillColor: "#0055ff"
       strokeColor: "#0055ff"
+      strokeWeight: 2
 
     @geocoder = new google.maps.Geocoder()
 
@@ -62,4 +63,4 @@ class Maps
 
   markerPositionChange: (latlang) ->
     @marker.setPosition latlang
-    @circle.setCenter latlang
+    # @circle.setCenter latlang
