@@ -14,7 +14,7 @@ MainCtrl = ($scope, socket) ->
   @maps.init()
 
   google.maps.event.addDomListener window, 'load', ->
-    $(".address").parent().addClass "map_gradient"
+    $(".address").show().wrap "<div class='map_gradient'></div>";
 
   positionLoop = =>
     @maps.currentPosition (latlang) =>
