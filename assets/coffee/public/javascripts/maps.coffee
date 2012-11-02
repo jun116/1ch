@@ -57,7 +57,7 @@ class Maps
     .done (json) ->
       console.log json
       address = json.resourceSets[0].resources[0].address
-      callback address.formattedAddress
+      callback address.locality + address.addressLine
       
 
     # @geocoder.geocode latLng: latlang
