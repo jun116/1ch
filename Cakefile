@@ -11,8 +11,8 @@ OUTDIR = '.'            # *.jsファイルの保存先
 
 # Compass
 #COMPASS_DIR = "./assets"
-COMPASS_COMMAND = 'compass'
-COMPASS_OPTIONS = 'compile'
+# COMPASS_COMMAND = 'compass'
+# COMPASS_OPTIONS = 'compile'
 
 task 'all', 'compile target files', ->
   for target in targetList
@@ -45,7 +45,7 @@ task 'all', 'compile target files', ->
 
   sys.puts "No change." unless command
   exec "growlnotify -t \"\" -m \"aa\""
-  compass()
+  # compass()
 
 task 'clean', 'delete target files', ->
   for target in targetList
@@ -76,7 +76,7 @@ targetFiles = (path = "") ->
 targetFiles()
 
 #---- compass ----
-compass = ->
-  command = "#{COMPASS_COMMAND} #{COMPASS_OPTIONS}"
-  sys.puts command
-  exec command
+# compass = ->
+#   command = "#{COMPASS_COMMAND} #{COMPASS_OPTIONS}"
+#   sys.puts command
+#   exec command
