@@ -23,10 +23,10 @@ MainCtrl = ($scope, socket) ->
         latitude: location.latitude
         longitude: location.longitude
 
-      # @maps.getAddress latlang, (address) ->
-        # $scope.$apply ->
-          # $scope.address = address
-          # $scope.position = position
+      @maps.getAddress position, (address) ->
+        $scope.$apply ->
+          $scope.address = address
+          $scope.position = position
 
       # socketio
       socket.emit 'session:start', position

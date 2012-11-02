@@ -1,10 +1,12 @@
 class Maps
 
+  key = "AqO6Yp2TKKTXRaVmveModdMqLPXMALcdYH_pYHhEomNkIlXgbrJJ2m2WqhDulqNt"
+
   constructor: (@canvas) ->
 
   init: ->
     options =
-      credentials: "AqO6Yp2TKKTXRaVmveModdMqLPXMALcdYH_pYHhEomNkIlXgbrJJ2m2WqhDulqNt"
+      credentials: key
       mapTypeId: Microsoft.Maps.MapTypeId.birdseye
       zoom: 18
       animate: false
@@ -40,15 +42,32 @@ class Maps
       maximumAge: 0
       enableHighAccuracy: true
 
-  getAddress: (latlang, address) =>
-    @geocoder.geocode latLng: latlang
-    , (results, status) =>
-      if status == google.maps.GeocoderStatus.OK
-        # 住所がいっぱい返ってくるが、最適なものをチョイスしなくてはいけない感じ
-        console.dir results
-        address @createAddress results[3].address_components
-      else
-        console.log "住所取得できず"
+  getAddress: (position, callback) =>
+
+
+    $.ajax 
+      url : "http://dev.virtualearth.net/REST/v1/Locations/#{position.latitude},#{position.longitude}"
+      type: "GET"
+      data: 
+        o  : "json"
+        key: key
+        c  : "ja-JP"
+      dataType: "jsonp"
+      jsonp: "jsonp"
+    .done (json) ->
+      console.log json
+      address = json.resourceSets[0].resources[0].address
+      callback address.formattedAddress
+      
+
+    # @geocoder.geocode latLng: latlang
+    # , (results, status) =>
+    #   if status == google.maps.GeocoderStatus.OK
+    #     # 住所がいっぱい返ってくるが、最適なものをチョイスしなくてはいけない感じ
+    #     console.dir results
+    #     address @createAddress results[3].address_components
+    #   else
+    #     console.log "住所取得できず"
 
   createAddress: (geocode) ->
     geocode[2].short_name + geocode[1].short_name    
