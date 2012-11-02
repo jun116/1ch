@@ -18,6 +18,7 @@ class Maps
       showCopyright: false
       enableSearchLogo: false
       enableClickableLogo: false
+      labelOverlay: Microsoft.Maps.LabelOverlay.hidden
 
     @map = new Microsoft.Maps.Map @canvas, options
 
