@@ -51,6 +51,7 @@ module.exports = (socket) ->
     conditions = 
       location : 
         $within : 
-          $centerSphere : [[data.longitude, data.latitude], 0.00015]
+          $centerSphere : 
+            [[data.longitude, data.latitude], 0.00015]
 
   return true
