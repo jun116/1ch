@@ -12,6 +12,7 @@ MainCtrl = ($scope, socket) ->
   # maps
   @maps = new Maps $("#map_canvas")[0]
   @maps.init()
+  @maps.getMap()
 
   google.maps.event.addDomListener window, 'load', ->
     $(".address").show().wrap "<div class='map_gradient'></div>";

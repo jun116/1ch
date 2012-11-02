@@ -2,6 +2,26 @@ class Maps
 
   constructor: (@canvas) ->
 
+  getMap: ->
+    options =
+      credentials: "AqO6Yp2TKKTXRaVmveModdMqLPXMALcdYH_pYHhEomNkIlXgbrJJ2m2WqhDulqNt"
+      mapTypeId: Microsoft.Maps.MapTypeId.birdseye
+      zoom: 18
+      animate: false
+      disableKeyboardInput: true
+      disableMouseInput: true
+      disableTouchInput: true
+      showDashboard: false
+      showScalebar: false
+      showCopyright: false
+      enableSearchLogo: false
+      enableClickableLogo: false
+
+    @map2 = new Microsoft.Maps.Map $("#map_canvas2")[0], options
+    center = @map2.getCenter()
+    pin = new Microsoft.Maps.Pushpin center, text: 'あ'
+    @map2.entities.push pin
+
   init: ->
     options =
       zoom: 16
@@ -29,6 +49,8 @@ class Maps
 
       @map.setCenter latlang
       @markerPositionChange latlang
+
+      @map2.setView center: new Microsoft.Maps.Location latitude, longitude
 
       callback(latlang)
 
