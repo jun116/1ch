@@ -34,7 +34,7 @@ module.exports = (socket) ->
     #   console.log "登録済み : " + sess._id
 
   socket.on 'tweet:show', (data) ->
-    message.find { location : { $within : { $centerSphere : [[data.longitude, data.latitude], 0.0001] } } }, {}, {sort: {'created': -1}}, (err, messages) ->
+    message.find { location : { $within : { $centerSphere : [[data.longitude, data.latitude], 0.00015] } } }, {}, {sort: {'created': -1}}, (err, messages) ->
       socket.emit 'tweet:result', { tweets: messages }
 
   socket.on 'tweet', (data) ->
@@ -47,8 +47,8 @@ module.exports = (socket) ->
     msg.save (err) ->
       throw err if err
       
-      # 取得範囲は半径1km(0.0001ラジアン)とする。※1ラジアンは6371km
-      session.find { location : { $within : { $centerSphere : [[data.longitude, data.latitude], 0.0001] } } }, (err, sessions) ->
+      # 取得範囲は半径1km(0.00015ラジアン)とする。※1ラジアンは6371km
+      session.find { location : { $within : { $centerSphere : [[data.longitude, data.latitude], 0.00015] } } }, (err, sessions) ->
         throw err if err
         for sess in sessions
           console.log '------ push socketid ------' + sess.socketid
