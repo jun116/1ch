@@ -18,6 +18,7 @@ class Maps
       showCopyright: false
       enableSearchLogo: false
       enableClickableLogo: false
+      labelOverlay: Microsoft.Maps.LabelOverlay.hidden
 
     @map = new Microsoft.Maps.Map @canvas, options
 
@@ -57,7 +58,7 @@ class Maps
     .done (json) ->
       console.log json
       address = json.resourceSets[0].resources[0].address
-      callback address.formattedAddress
+      callback address.locality + address.addressLine
       
   createAddress: (geocode) ->
     geocode[2].short_name + geocode[1].short_name    
