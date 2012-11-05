@@ -59,16 +59,6 @@ class Maps
       address = json.resourceSets[0].resources[0].address
       callback address.formattedAddress
       
-
-    # @geocoder.geocode latLng: latlang
-    # , (results, status) =>
-    #   if status == google.maps.GeocoderStatus.OK
-    #     # 住所がいっぱい返ってくるが、最適なものをチョイスしなくてはいけない感じ
-    #     console.dir results
-    #     address @createAddress results[3].address_components
-    #   else
-    #     console.log "住所取得できず"
-
   createAddress: (geocode) ->
     geocode[2].short_name + geocode[1].short_name    
 

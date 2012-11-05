@@ -13,8 +13,9 @@ MainCtrl = ($scope, socket) ->
   @maps = new Maps $("#map_canvas")[0]
   @maps.init()
 
-  google.maps.event.addDomListener window, 'load', ->
+  Microsoft.Maps.Events.addHandler map, 'tiledownloadcomplete', ->
     $(".address").show().wrap "<div class='map_gradient'></div>";
+  # google.maps.event.addDomListener window, 'load', ->
 
   positionLoop = =>
     @maps.currentPosition (location) =>
